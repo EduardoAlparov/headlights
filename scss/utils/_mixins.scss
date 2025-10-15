@@ -1,0 +1,282 @@
+@import '_variables.scss';
+
+@mixin font($size: 1.6rem, $line-height: 1.375, $weight: 400, $bottom: false) {
+    margin: 0;
+    font-family: var(--main-ff, Arial);
+    font-weight: $weight;
+    font-size: $size;
+    line-height: $line-height;
+    user-select: text;
+
+    @if $bottom {
+        margin-bottom: $bottom;
+    }
+}
+
+@mixin h1 {
+    @include font(7rem, 1.15, 600, $size-32);
+}
+
+@mixin h2 {
+    @include font(5.2rem, 1.25, 600, $size-24);
+}
+
+@mixin text {
+    @include font;
+}
+
+@mixin text-sm {
+    @include font(1.4rem);
+}
+
+@mixin text-default {
+    @include text;
+
+    @include media(tablet) {
+        @include text-sm;
+    }
+}
+
+@mixin color($name, $color) {
+    ._bg-#{$name} {
+        background: $color;
+        /* stylelint-disable-line declaration-no-important */
+    }
+
+    ._color-#{$name} {
+        color: $color;
+        /* stylelint-disable-line declaration-no-important */
+    }
+}
+
+@mixin media($Device) {
+    @media screen and (max-width: (map-get($breakpoints, $Device))) {
+        @content;
+    }
+}
+
+@mixin z-index($key) {
+    z-index: map-get($z-index, $key);
+}
+
+
+@mixin placeholder {
+    &::-webkit-input-placeholder {
+        @content;
+    }
+
+    &:-moz-placeholder {
+        @content;
+    }
+
+    &::-moz-placeholder {
+        @content;
+    }
+
+    &:-ms-input-placeholder {
+        @content;
+    }
+}
+
+@mixin customScrollbar {
+    &::-webkit-scrollbar {
+        width: 0.2rem;
+        background-color: var(--color-grey-300);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: var(--color-grey-600);
+    }
+
+    &::-webkit-scrollbar-button {
+        display: none;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: var(--color-grey-300);
+    }
+}
+
+@mixin noScrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar * {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar {
+        display: none;
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: transparent;
+    }
+}
+
+@mixin noHighlight() {
+    -webkit-tap-highlight-color: transparent;
+}
+
+@mixin maxSizeText($size) {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: $size;
+    -webkit-box-orient: vertical;
+}
+
+@mixin hover {
+    @media (hover: none) {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+        &:active {
+            @content;
+        }
+    }
+
+    @media (-ms-high-contrast: none),
+    (-ms-high-contrast: active),
+    (-moz-touch-enabled: 0),
+    (hover: hover) {
+        &:hover {
+            @content;
+        }
+    }
+}
+
+@mixin visuallyHidden() {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    white-space: nowrap;
+}
+
+@mixin centeredAbsolute {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+}
+
+@mixin hiddenByDefault {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0s linear 0.3s;
+
+    &.active {
+        opacity: 1;
+        visibility: inherit;
+        transition: opacity 0.3s, visibility 0.3s;
+    }
+}
+
+@mixin breakpoint($class) {
+    @if $class ==large-desktop {
+        @media only screen and (max-width: (1600px)) {
+            @content;
+        }
+    }
+
+    @else if $class ==desktop {
+        @media only screen and (max-width: (1400px)) {
+            @content;
+        }
+    }
+
+    @else if $class ==laptop {
+        @media only screen and (max-width: (1200px)) {
+            @content;
+        }
+    }
+
+    @else if $class ==tablet {
+        @media only screen and (max-width: (1024px)) {
+            @content;
+        }
+    }
+
+    @else if $class ==small-tablet {
+        @media only screen and (max-width: (768px)) {
+            @content;
+        }
+    }
+
+    @else if $class ==mobile {
+        @media only screen and (max-width: (640px)) {
+            @content;
+        }
+    }
+
+    @else if $class ==small-mobile {
+        @media only screen and (max-width: (576px)) {
+            @content;
+        }
+    }
+
+    @else if $class ==supersmall-mobile {
+        @media only screen and (max-width: (370px)) {
+            @content;
+        }
+    }
+}
+
+@mixin breakpointMF($class) {
+    @if $class ==ultra-desktop {
+        @media only screen and (min-width: 1920px) {
+            @content;
+        }
+    }
+
+    @else if $class ==large-desktop {
+        @media only screen and (min-width: 1401px) {
+            @content;
+        }
+    }
+
+    @else if $class ==desktop {
+        @media only screen and (min-width: 1201px) {
+            @content;
+        }
+    }
+
+    @else if $class ==laptop {
+        @media only screen and (min-width: 1025px) {
+            @content;
+        }
+    }
+
+    @else if $class ==portait-tablet {
+        @media only screen and (min-width: 992px) {
+            @content;
+        }
+    }
+
+    @else if $class ==tablet {
+        @media only screen and (min-width: 744px) {
+            @content;
+        }
+    }
+
+    @else if $class ==small-tablet {
+        @media only screen and (min-width: 641px) {
+            @content;
+        }
+    }
+
+    @else if $class ==mobile {
+        @media only screen and (min-width: 577px) {
+            @content;
+        }
+    }
+}

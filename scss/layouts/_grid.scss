@@ -1,0 +1,38 @@
+@import '../utils/_variables';
+
+$columns-count: 10;
+$gutter: $size-12;
+
+$width: 100% / $columns-count;
+
+@mixin grid($breakpoint: '') {
+    $prefix: if($breakpoint=='', '', '-');
+
+    .grid-row {
+        display: flex;
+        align-items: stretch;
+        justify-content: space-between;
+        column-gap: $gutter;
+    }
+
+    @for $i from 1 through $columns-count {
+        .grid-col#{$prefix}#{$breakpoint}-#{$i} {
+            width: $width * $i;
+        }
+    }
+
+    @for $i from 1 through $columns-count {
+        .grid-off#{$prefix}#{$breakpoint}-#{$i} {
+            margin-left: calc(#{$gutter} + #{$width * $i});
+        }
+    }
+}
+
+@include grid;
+
+@each $breakpoint,
+$value in $breakpoints {
+    @media (max-width: $value) {
+        @include grid($breakpoint);
+    }
+}

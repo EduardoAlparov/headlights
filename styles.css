@@ -1,0 +1,40 @@
+@import url('./css/main.min.css');
+
+:root {
+    /* layout: */
+    --max-container-width: 168rem;
+    --content-padding: 1rem;
+
+    /* colors: */
+    --accent: orange;
+    --title: #111;
+    --text: #333;
+    --back: #eee;
+    --white: #fff;
+    --black: #000;
+
+    /* typography: */
+    --main-ff: "Roboto", sans-serif;
+    --systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+
+    /* etc.: */
+    --transition: 0.3s ease;
+}
+
+@media only screen and (min-width: 577px) {
+    :root {
+        --content-padding: 1.5rem;
+    }
+}
+
+@media only screen and (min-width: 769px) {
+    :root {
+        --content-padding: 2rem;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    :root {
+        --content-padding: 4rem;
+    }
+}

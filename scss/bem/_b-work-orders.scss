@@ -1,0 +1,249 @@
+.b-work-orders {
+    --color-white: #fff; // var(--color-white, #fff);
+    --color-black: #000; // var(--color-black, #000);
+    --color-grey: #ABABAB;
+    --color-orange: #FD6D20; // var(--color-orange, #FD6D20);
+
+    --color-border: #DBDBDB;
+    --color-border-2: #CFCFCF; // var(--color-border-2, #CFCFCF);
+    --color-back: #FAFAFA;
+    --color-text: #2B2B2B; // var(--color-text, #2B2B2B);
+
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    &__inner-contianer {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 30px;
+
+        flex-grow: 1;
+
+        padding: 43px 16px;
+
+        color: var(--color-black, #000);
+        background-color: var(--color-white, #fff);
+
+        @include breakpointMF(tablet) {
+            padding: 60px 40px;
+        }
+
+        @include breakpointMF(laptop) {
+            padding: 43px 30px;
+        }
+    }
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 30px;
+
+        flex: 1 0 max-content;
+    }
+
+    &__headline {
+        font-family: Ubuntu;
+        font-size: 36px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+
+    &__search-row {
+        display: flex;
+        align-items: stretch;
+        gap: 20px;
+
+        @include breakpointMF(laptop) {
+            gap: 36px;
+        }
+    }
+
+    &__searchbar {
+        display: flex;
+        align-items: stretch;
+        gap: 20px;
+
+        flex: 1 1 100%;
+        height: 62px;
+
+        @include breakpointMF(laptop) {
+            gap: 27px;
+            flex: 0 1 740px;
+        }
+
+        &>input {
+            width: 100%;
+            height: 100%;
+            padding: 17px 20px;
+
+            font-family: Inter;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+
+
+            background-color: var(--color-back, #FAFAFA);
+            border: 1px solid var(--color-border, #DBDBDB);
+            outline: none;
+
+            @include placeholder {
+                color: var(--color-grey, #ABABAB);
+                font-family: Inter;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+            }
+        }
+
+        &>button {
+            display: none;
+            place-items: center;
+            place-content: center;
+
+            height: 100%;
+            padding: 20px 40px;
+
+            color: var(--color-white, #fff);
+            font-family: Ubuntu;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            border: none;
+            outline: none;
+
+            background: linear-gradient(269deg, #FF762E 0.63%, #F95904 99.59%);
+
+            @include breakpointMF(tablet) {
+                display: grid;
+            }
+        }
+    }
+
+    &__filter-select {
+        display: none;
+
+        @include breakpointMF(tablet) {
+            display: block;
+        }
+    }
+
+    &__select {
+        &.b-select {
+            height: 100%;
+        }
+    }
+
+    &__date-line {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+
+        &>hr {
+            flex: 1 1 100%;
+            height: 2px;
+            background-color: #E6E6E6;
+
+            border: none;
+        }
+    }
+
+    &__date-value {
+        color: var(--color-text, #2B2B2B);
+        font-family: Ubuntu;
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        white-space: nowrap;
+    }
+
+    &__body {
+        flex: 1 1 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 30px;
+    }
+
+    &__list-wrapper {
+        display: flex;
+        flex-direction: column;
+        row-gap: 32px;
+    }
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: 32px;
+        column-gap: 59px;
+    }
+
+    &__item {
+        flex: 1 1 100%;
+
+        @include breakpointMF(laptop) {
+            flex: 0 1 calc(100% / 2 - (60px / 2));
+        }
+
+        @include breakpointMF(ultra-desktop) {
+            flex: 0 1 calc(100% / 3 - (60px * 2 / 3));
+        }
+    }
+
+    &__fixed-add-button {
+
+        &.b-orders-item__button {
+            position: fixed;
+            right: 9px;
+            bottom: 40px;
+            z-index: 1500;
+
+            background: linear-gradient(269deg, #FF762E 0.63%, #F95904 99.59%), #D9D9D9;
+            border-radius: 20px;
+
+            @include breakpointMF(tablet) {
+                right: 20px;
+            }
+
+            @include breakpointMF(laptop) {
+                display: none;
+            }
+        }
+    }
+
+    &__order-item-link {
+        width: 100%;
+        height: 100%;
+
+        display: none;
+        place-items: center;
+        place-content: center;
+
+        background-color: var(--color-white, #fff);
+        border: 1px solid var(--color-orange, #FD6D20);
+        text-decoration: none;
+
+        @include breakpointMF(laptop) {
+            display: grid;
+        }
+
+        &>span {
+            white-space: nowrap;
+            color: var(--color-orange, #FD6D20);
+            text-align: center;
+            font-family: Ubuntu;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
+    }
+}
