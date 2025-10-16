@@ -5,83 +5,103 @@
 
     &__dropdown {
         position: absolute;
-        top: calc(100% - 1px);
-        z-index: 2000;
+        top: calc(100% - 14px);
+        right: 0;
+        z-index: 1000;
 
-        overflow: hidden;
         display: none;
 
-        width: 100%;
-        padding: 1rem 0.4rem 1rem 1rem;
-        background-color: rgba(39, 39, 51, 0.90);
-        border: 1px solid #3D4050;
+        border: 1px solid #E1E1E1;
+        background: #FFF;
+        box-shadow: 0 0 15px 8px rgba(0, 0, 0, 0.05);
 
-        border-bottom-left-radius: 0.3rem;
-        border-bottom-right-radius: 0.3rem;
-    }
-
-    &__list {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-
-        max-height: 14.1rem;
-        overflow-y: scroll;
-
-        @include customScrollbar();
-
-        @supports (-moz-appearance:none) {
-            scrollbar-color: var(--color-accent, #42a9ed) transparent !important;
-            scrollbar-width: thin !important;
-        }
-    }
-
-    &__item {
-        height: 3.4rem;
-    }
-
-    &__label {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1.6rem;
-
-        width: 100%;
-        transition: var(--transition);
-        transition-property: background, border;
-        cursor: pointer;
-
-        @include hover() {
-
-            .select__text {
-                color: var(--color-accent, #42a9ed);
-            }
+        @include breakpointMF(laptop) {
+            left: 0;
+            right: auto;
         }
 
-        input[type="radio"] {
-            &:checked {
-                &~.select__icon {
-                    background-image: url("data:image/svg+xml, %3Csvg%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M19%2010C19%2014.9706%2014.9706%2019%2010%2019C5.02944%2019%201%2014.9706%201%2010C1%205.02944%205.02944%201%2010%201C14.9706%201%2019%205.02944%2019%2010ZM20%2010C20%2015.5228%2015.5228%2020%2010%2020C4.47715%2020%200%2015.5228%200%2010C0%204.47715%204.47715%200%2010%200C15.5228%200%2020%204.47715%2020%2010ZM10%2016C13.3137%2016%2016%2013.3137%2016%2010C16%206.68629%2013.3137%204%2010%204C6.68629%204%204%206.68629%204%2010C4%2013.3137%206.68629%2016%2010%2016Z%22%20fill%3D%22%23EF9930%22%2F%3E%0A%3C%2Fsvg%3E%0A");
-                    background-size: cover;
-                    background-repeat: no-repeat;
-                    background-position: center;
-                    border: none;
+        &>ul {
+            display: flex;
+            flex-direction: column;
+
+            margin: 0;
+            padding: 0;
+
+            &>li {
+                &>a {
+                    display: block;
+                    padding: 12px 20px;
+                    min-width: 170px;
+
+                    color: #000;
+                    font-family: Ubuntu;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                    text-decoration: none;
+
+                    transition-property: color, background;
+                    transition-duration: 0.3s;
+                    transition-timing-function: ease-in-out;
+
+                    background-color: var(--color-white, #fff);
+
+                    @include breakpointMF(laptop) {
+                        min-width: 226px;
+                    }
+
+                    @include hover {
+                        color: #FD6D20;
+                        background-color: #F7F7F7;
+                    }
                 }
             }
         }
     }
 
-    &__text {
-        display: block;
-        flex-grow: 1;
-        color: var(--color-white, #fff);
-        font-family: Lato;
-        font-size: 1.8rem;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 188.889%;
-        transition: color var(--transition);
+
+    &__close {
+        display: grid;
+        place-items: center;
+        place-content: center;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+
+        width: 48px;
+        height: 48px;
+        flex-shrink: 0;
+        margin: 3px 3px 14px auto;
+
+        background-color: transparent;
+
+        @include breakpointMF(laptop) {
+            margin: 3px 3px 14px 5px;
+        }
+
+        &>span {
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+
+            display: block;
+            width: 20px;
+            height: 3px;
+            flex-shrink: 0;
+            transform-origin: center;
+
+            background-color: #FC752D;
+            transition: all 0.3s ease;
+
+            &:first-child {
+                transform: rotate(45deg);
+            }
+
+            &:last-child {
+                transform: rotate(-45deg);
+            }
+        }
     }
+
 
     &__current {
         position: relative;
@@ -105,6 +125,7 @@
         border: 1px solid var(--color-white, #fff);
         background: rgba(255, 255, 255, 0.85);
         cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
 
         &>i {
             position: absolute;
@@ -125,37 +146,18 @@
             transition: transform var(--transition);
             content: "";
         }
-    }
 
-    &.select--opened {
-        .select__current {
+        &.js-dropdown-btn--active {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
 
             &::after {
                 transform: translateY(-50%) rotate(180deg);
             }
+
+            &~.b-select__dropdown {
+                display: block;
+            }
         }
-
-        .select__dropdown {
-            display: block;
-        }
-
-        .select__list {
-            animation: slideDownAnimation 0.3s ease 0s 1 forwards;
-        }
-    }
-}
-
-
-@keyframes slideDownAnimation {
-    0% {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateY(0);
-        opacity: 1;
     }
 }

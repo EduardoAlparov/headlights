@@ -1,4 +1,8 @@
 .b-orders-item {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
     border: 1px solid var(--color-border-2, #CFCFCF);
     background-color: var(--color-white, #fff);
     box-shadow: 0 0 25px 5px rgba(0, 0, 0, 0.05);
@@ -27,6 +31,61 @@
         flex-direction: column;
         align-items: stretch;
         gap: 20px;
+
+        flex-grow: 1;
+    }
+
+    &__dropdown {
+        position: relative;
+    }
+
+    &__select {
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        z-index: 300;
+
+        display: none;
+        padding-top: 60px;
+
+        background-color: var(--color-white, #fff);
+        box-shadow: 0 0 15px 8px rgba(0, 0, 0, 0.05);
+        border: 1px solid #E1E1E1;
+
+        @include breakpointMF(tablet) {
+            left: -20px;
+        }
+
+        &>ul {
+            display: flex;
+            flex-direction: column;
+
+            &>li {
+                &>a {
+                    display: block;
+                    padding: 10px 20px;
+
+                    color: #000;
+                    font-family: Ubuntu;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                    text-decoration: none;
+
+                    transition-property: color, background;
+                    transition-duration: 0.3s;
+                    transition-timing-function: ease-in-out;
+
+                    background-color: var(--color-white, #fff);
+
+                    @include hover {
+                        color: #FD6D20;
+                        background-color: #F7F7F7;
+                    }
+                }
+            }
+        }
     }
 
     &__button {
@@ -46,6 +105,7 @@
 
         background: linear-gradient(269deg, #FF762E 0.63%, #F95904 99.59%);
         border-radius: 100%;
+        -webkit-tap-highlight-color: transparent;
 
         &>span {
             grid-column: 1 / 2;
@@ -58,9 +118,27 @@
             transform-origin: center;
 
             background-color: var(--color-white, #fff);
+            transition: all 0.3s ease;
 
             &:is(.b-orders-item__button-plus) {
                 transform: rotate(90deg);
+            }
+        }
+
+        &.b-orders-item__button--active,
+        &.js-dropdown-btn--active {
+            z-index: 500;
+
+            background: transparent;
+            transform: rotate(45deg);
+
+            &>span {
+                width: 20px;
+                background-color: #FC752D;
+            }
+
+            &+.b-orders-item__select {
+                display: block;
             }
         }
 
@@ -74,6 +152,15 @@
             }
         }
     }
+
+    &__center {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+
+        flex-grow: 1;
+    }
+
 
     &__order-products,
     &__order-info {
@@ -101,6 +188,7 @@
 
     &__order-client-city {
         display: none;
+        white-space: nowrap;
 
         @include breakpointMF(tablet) {
             position: absolute;
@@ -134,15 +222,32 @@
     &__order-product-item {
         margin-bottom: 30px;
 
+        &:nth-child(n+4) {
+            display: none;
+        }
+
         @include breakpointMF(tablet) {
             margin-bottom: 40px;
         }
+    }
+
+    &__order-client {
+        padding-right: 60px;
+        @include maxSizeText(1);
     }
 
     &__product-article,
     &__order-client-surname,
     &__order-number {
         font-weight: 700;
+    }
+
+    &__order-number {
+        color: inherit;
+
+        @include breakpointMF(laptop) {
+            text-decoration: none;
+        }
     }
 
 
@@ -163,6 +268,8 @@
 
     &__product-desc {
         max-width: 40ch;
+
+        @include maxSizeText(2);
     }
 
     &__product-quantity {
@@ -180,7 +287,9 @@
         align-items: stretch;
         gap: 10px;
 
+        margin-top: auto;
         padding-top: 20px;
+
         border-top: 2px solid #E6E6E6;
 
         @include breakpointMF(tablet) {
@@ -202,6 +311,9 @@
         inset: 0;
         z-index: 100;
 
+        display: none;
+        margin-top: auto;
+
         color: #FD6D20;
         text-align: center;
         font-family: Ubuntu;
@@ -214,6 +326,7 @@
 
         @include breakpointMF(tablet) {
             position: static;
+            display: block;
         }
     }
 
@@ -221,6 +334,13 @@
         display: none;
         align-items: flex-end;
         gap: 18px;
+
+        text-underline-position: above;
+        text-underline-offset: 2px;
+
+        @include hover {
+            text-decoration: underline;
+        }
 
         @include breakpointMF(tablet) {
             display: flex;

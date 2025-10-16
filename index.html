@@ -3,25 +3,14 @@
     <head>
         <meta
         charset="utf-8">
-        <!-- <base href="/"> -->
-        <title>Simple Starter 3.0</title>
+        <title>Мир ФАР</title>
         <meta name="description" content="Simple Starter 2.0 Description ">
         <meta
             name="viewport"
             content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <meta property="og:image" content="images/preview.jpg">
         <link rel="icon" href="images/favicon.png">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link
-            rel="preload stylesheet"
-            as="style"
-            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
-        <link rel="preload stylesheet" as="style" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-        <link
-            rel="preload stylesheet"
-            as="style"
-            href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"/>
+
         <link rel="stylesheet" href="./styles.css">
     </head>
     <body class="preload">
@@ -36,66 +25,55 @@
                                         Заказ-наряды
                                     </h4>
 
-                                    <div class="b-work-orders__search-row">
-                                        <form action="" class="b-work-orders__searchbar">
-                                            <input type="search" name="orders-search-input" id="orders-search-input-id" placeholder="Поиск">
+                                    <form action="" class="b-work-orders__search-row">
+                                        <div class="b-work-orders__searchbar">
+                                            <input type="search" name="orders-search-input" id="orders-search-input-id" required placeholder="Поиск">
                                             <button type="submit" class="">Поиск</button>
-                                        </form>
+                                        </div>
 
                                         <div class="b-work-orders__filter-select">
                                             <div class="b-work-orders__select b-select">
-                                                <button class="b-select__current" type="button">
+                                                <button type="button" class="b-select__current js-item-dropdown-btn">
                                                     Фильтр заказов
                                                     <i></i>
                                                 </button>
                                                 <div class="b-select__dropdown">
+                                                    <button type="button" class="b-select__close">
+                                                        <span></span>
+                                                        <span></span>
+                                                    </button>
 
                                                     <ul class="b-select__list">
                                                         <li class="b-select__item">
-                                                            <label class="b-select__label" for="order-filter-select-all">
-                                                                <input type="radio" hidden="hidden" value="Все заказы" name="order-filter-select" id="order-filter-select-all" required>
-                                                                <span class="b-select__text">
-                                                                    Все заказы
-                                                                </span>
-                                                            </label>
+                                                            <a href="http://" id="" data-filter="" class=""b-select__link">
+                                                                Все заказы
+                                                            </a>
                                                         </li>
                                                         <li class="b-select__item">
-                                                            <label class="b-select__label" for="order-filter-select-no-bills">
-                                                                <input type="radio" hidden="hidden" value="Неоплаченные" name="order-filter-select" id="order-filter-select-no-bills" required>
-                                                                <span class="b-select__text">
-                                                                    Неоплаченные
-                                                                </span>
-                                                            </label>
+                                                            <a href="http://" id="" data-filter="" class=""b-select__link">
+                                                                Неоплаченные
+                                                            </a>
                                                         </li>
                                                         <li class="b-select__item">
-                                                            <label class="b-select__label" for="order-filter-select-bills">
-                                                                <input type="radio" hidden="hidden" value="Оплаченные" name="order-filter-select" id="order-filter-select-bills" required>
-                                                                <span class="b-select__text">
-                                                                    Оплаченные
-                                                                </span>
-                                                            </label>
+                                                            <a href="http://" id="" data-filter="" class=""b-select__link">
+                                                                Оплаченные
+                                                            </a>
                                                         </li>
                                                         <li class="b-select__item">
-                                                            <label class="b-select__label" for="order-filter-select-return">
-                                                                <input type="radio" hidden="hidden" value="С возвратом" name="order-filter-select" id="order-filter-select-return" required>
-                                                                <span class="b-select__text">
-                                                                   С возвратом
-                                                                </span>
-                                                            </label>
+                                                            <a href="http://" id="" data-filter="" class=""b-select__link">
+                                                                С возвратом
+                                                            </a>
                                                         </li>
                                                         <li class="b-select__item">
-                                                            <label class="b-select__label" for="order-filter-select-cancel">
-                                                                <input type="radio" hidden="hidden" value="Отмененные" name="order-filter-select" id="order-filter-select-cancel" required>
-                                                                <span class="b-select__text">
-                                                                    Отмененные
-                                                                </span>
-                                                            </label>
+                                                            <a href="http://" id="" data-filter="" class=""b-select__link">
+                                                                Отмененные
+                                                            </a>
                                                         </li>
                                                     </ul>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
 
                                 <div class="b-work-orders__body">
@@ -111,21 +89,381 @@
                                             <li class="b-work-orders__item b-orders-item">
                                                 <div class="b-orders-item__body">
                                                     <div class="b-orders-item__header">
-                                                        <button type="button" class="b-orders-item__button">
-                                                            <span class="b-orders-item__button-plus"></span>
-                                                            <span class="b-orders-item__button-minus"></span>
-                                                        </button>
+                                                        <div class="b-orders-item__dropdown">
+                                                            <button type="button" class="b-orders-item__button js-item-dropdown-btn">
+                                                                <span class="b-orders-item__button-plus"></span>
+                                                                <span class="b-orders-item__button-minus"></span>
+                                                            </button>
+
+                                                            <div class="b-orders-item__select">
+                                                                <ul class="b-orders-item__select-list">
+                                                                    <li class="b-orders-item__select-item">
+                                                                        <a href="#" id="" data-link="" class="b-orders-item__select-link">
+                                                                            Оформить
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="b-orders-item__select-item">
+                                                                        <a href="#" id="" data-link="" class="b-orders-item__select-link">
+                                                                            Оформить через кассу
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="b-orders-item__select-item">
+                                                                        <a href="#" id="" data-link="" class="b-orders-item__select-link">
+                                                                            Отправить ссылку на оплату
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="b-orders-item__select-item">
+                                                                        <a href="#" id="" data-link="" class="b-orders-item__select-link">
+                                                                            Редактировать
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="b-orders-item__select-item">
+                                                                        <a href="#" id="" data-link="" class="b-orders-item__select-link">
+                                                                            Отменить заказ
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
                                                     </div>
 
                                                     <div class="b-orders-item__center">
                                                         <div class="b-orders-item__order-info">
                                                             <div class="b-orders-item__order-row">
-                                                                <div class="b-orders-item__order-number">
+                                                                <a href="#" class="b-orders-item__order-number">
                                                                     <span>Заказ №</span>
                                                                     <span class="b-orders-item__order-number-value">
                                                                         436500
                                                                     </span>
+                                                                </a>
+                                                                <div class="b-orders-item__order-time">
+                                                                    20:46:28
                                                                 </div>
+
+                                                                <div class="b-orders-item__order-client-data">
+                                                                    <p class="b-orders-item__order-client-surname">
+                                                                        Punin
+                                                                    </p>
+                                                                    <p class="b-orders-item__order-client-city">
+                                                                        Санкт-Петербург
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="b-orders-item__order-row">
+                                                                <div class="b-orders-item__order-client">
+                                                                    <span>Клиент:</span>
+                                                                    <span class="b-orders-item__order-client-name">
+                                                                        атомик гараж
+                                                                        атомик гараж
+                                                                        атомик гараж
+                                                                        атомик гараж
+                                                                        атомик гараж
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="b-orders-item__order-row">
+                                                                <div class="b-orders-item__order-phone">
+                                                                    <span>Тел.:</span><span class="b-orders-item__order-phone-value">
+                                                                        +79819349764
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <ul class="b-orders-item__order-products">
+                                                            <li class="b-orders-item__order-product-item">
+                                                                <div class="b-orders-item__product-article">
+                                                                    90503221
+                                                                </div>
+
+                                                                <div class="b-orders-item__order-product-data">
+                                                                    <p class="b-orders-item__product-desc">
+                                                                        Левое стекло фары Audi Q3 8U 2014-2018 Рестайлинг
+                                                                    </p>
+                                                                    <span class="b-orders-item__product-quantity">1</span>
+                                                                    <span class="b-orders-item__product-price">15000</span>
+                                                                </div>
+                                                            </li>
+                                                            <li class="b-orders-item__order-product-item">
+                                                                <div class="b-orders-item__product-article">
+                                                                    90503222
+                                                                </div>
+
+                                                                <div class="b-orders-item__order-product-data">
+                                                                    <p class="b-orders-item__product-desc">
+                                                                        Правое стекло фары Audi Q3 8U 2014-2018 Рестайлинг
+                                                                    </p>
+                                                                    <span class="b-orders-item__product-quantity">3</span>
+                                                                    <span class="b-orders-item__product-price">3000</span>
+                                                                </div>
+                                                            </li>
+                                                            <li class="b-orders-item__order-product-item">
+                                                                <div class="b-orders-item__product-article">
+                                                                    90503222
+                                                                </div>
+
+                                                                <div class="b-orders-item__order-product-data">
+                                                                    <p class="b-orders-item__product-desc">
+                                                                        Правое стекло фары Audi Q3 8U 2014-2018 Рестайлинг
+                                                                    </p>
+                                                                    <span class="b-orders-item__product-quantity">3</span>
+                                                                    <span class="b-orders-item__product-price">3000</span>
+                                                                </div>
+                                                            </li>
+                                                            <li class="b-orders-item__order-product-item">
+                                                                <div class="b-orders-item__product-article">
+                                                                    90503222
+                                                                </div>
+
+                                                                <div class="b-orders-item__order-product-data">
+                                                                    <p class="b-orders-item__product-desc">
+                                                                        Правое стекло фары Audi Q3 8U 2014-2018 Рестайлинг
+                                                                    </p>
+                                                                    <span class="b-orders-item__product-quantity">3</span>
+                                                                    <span class="b-orders-item__product-price">3000</span>
+                                                                </div>
+                                                            </li>
+                                                            <li class="b-orders-item__order-product-item">
+                                                                <div class="b-orders-item__product-article">
+                                                                    90503222
+                                                                </div>
+
+                                                                <div class="b-orders-item__order-product-data">
+                                                                    <p class="b-orders-item__product-desc">
+                                                                        Правое стекло фары Audi Q3 8U 2014-2018 Рестайлинг
+                                                                    </p>
+                                                                    <span class="b-orders-item__product-quantity">3</span>
+                                                                    <span class="b-orders-item__product-price">3000</span>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+
+                                                        <a href="#" class="b-orders-item__link">
+                                                            <div class="b-orders-item__link-inner">
+                                                                <div class="b-orders-item__link-dots">
+                                                                    <i></i>
+                                                                    <i></i>
+                                                                    <i></i>
+                                                                </div>
+                                                                Подробнее
+                                                            </div>
+                                                        </a>
+                                                    </div>
+
+                                                    <div class="b-orders-item__final">
+                                                        <div class="b-orders-item__order-row">
+                                                            <div class="b-orders-item__price">
+                                                                Сумма заказа:
+                                                                <span class="b-orders-item__price-value">
+                                                                    37800
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="b-orders-item__order-row">
+                                                            <div class="b-orders-item__profit">
+                                                                Рентабельность:
+                                                                <span class="b-orders-item__profit-value">
+                                                                    14200
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="b-work-orders__item b-orders-item">
+                                                <div class="b-orders-item__body">
+                                                    <div class="b-orders-item__header">
+                                                        <div class="b-orders-item__dropdown">
+                                                            <button type="button" class="b-orders-item__button js-item-dropdown-btn">
+                                                                <span class="b-orders-item__button-plus"></span>
+                                                                <span class="b-orders-item__button-minus"></span>
+                                                            </button>
+
+                                                            <div class="b-orders-item__select">
+                                                                <ul class="b-orders-item__select-list">
+                                                                    <li class="b-orders-item__select-item">
+                                                                        <a href="#" id="" data-link="" class="b-orders-item__select-link">
+                                                                            Оформить
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="b-orders-item__select-item">
+                                                                        <a href="#" id="" data-link="" class="b-orders-item__select-link">
+                                                                            Оформить через кассу
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="b-orders-item__select-item">
+                                                                        <a href="#" id="" data-link="" class="b-orders-item__select-link">
+                                                                            Отправить ссылку на оплату
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="b-orders-item__select-item">
+                                                                        <a href="#" id="" data-link="" class="b-orders-item__select-link">
+                                                                            Редактировать
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="b-orders-item__select-item">
+                                                                        <a href="#" id="" data-link="" class="b-orders-item__select-link">
+                                                                            Отменить заказ
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="b-orders-item__center">
+                                                        <div class="b-orders-item__order-info">
+                                                            <div class="b-orders-item__order-row">
+                                                                <a href="#" class="b-orders-item__order-number">
+                                                                    <span>Заказ №</span>
+                                                                    <span class="b-orders-item__order-number-value">
+                                                                        436500
+                                                                    </span>
+                                                                </a>
+                                                                <div class="b-orders-item__order-time">
+                                                                    20:46:28
+                                                                </div>
+
+                                                                <div class="b-orders-item__order-client-data">
+                                                                    <p class="b-orders-item__order-client-surname">
+                                                                        Punin
+                                                                    </p>
+                                                                    <p class="b-orders-item__order-client-city">
+                                                                        Пермь
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="b-orders-item__order-row">
+                                                                <div class="b-orders-item__order-client">
+                                                                    <span>Клиент:</span><span class="b-orders-item__order-client-name">
+                                                                        атомик гараж
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="b-orders-item__order-row">
+                                                                <div class="b-orders-item__order-phone">
+                                                                    <span>Тел.:</span><span class="b-orders-item__order-phone-value">
+                                                                        +79819349764
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <ul class="b-orders-item__order-products">
+                                                            <li class="b-orders-item__order-product-item">
+                                                                <div class="b-orders-item__product-article">
+                                                                    90503221
+                                                                </div>
+
+                                                                <div class="b-orders-item__order-product-data">
+                                                                    <p class="b-orders-item__product-desc">
+                                                                        Левое стекло фары Audi Q3 8U 2014-2018 Рестайлинг
+                                                                    </p>
+                                                                    <span class="b-orders-item__product-quantity">1</span>
+                                                                    <span class="b-orders-item__product-price">15000</span>
+                                                                </div>
+                                                            </li>
+                                                            <li class="b-orders-item__order-product-item">
+                                                                <div class="b-orders-item__product-article">
+                                                                    90503222
+                                                                </div>
+
+                                                                <div class="b-orders-item__order-product-data">
+                                                                    <p class="b-orders-item__product-desc">
+                                                                        Правое стекло фары Audi Q3 8U 2014-2018 Рестайлинг
+                                                                    </p>
+                                                                    <span class="b-orders-item__product-quantity">3</span>
+                                                                    <span class="b-orders-item__product-price">3000</span>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+
+                                                        <a href="#" class="b-orders-item__link">
+                                                            <div class="b-orders-item__link-inner">
+                                                                <div class="b-orders-item__link-dots">
+                                                                    <i></i>
+                                                                    <i></i>
+                                                                    <i></i>
+                                                                </div>
+                                                                Подробнее
+                                                            </div>
+                                                        </a>
+                                                    </div>
+
+                                                    <div class="b-orders-item__final">
+                                                        <div class="b-orders-item__order-row">
+                                                            <div class="b-orders-item__price">
+                                                                Сумма заказа:
+                                                                <span class="b-orders-item__price-value">
+                                                                    37800
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="b-orders-item__order-row">
+                                                            <div class="b-orders-item__profit">
+                                                                Рентабельность:
+                                                                <span class="b-orders-item__profit-value">
+                                                                    14200
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="b-work-orders__item b-orders-item">
+                                                <div class="b-orders-item__body">
+                                                    <div class="b-orders-item__header">
+                                                        <div class="b-orders-item__dropdown">
+                                                            <button type="button" class="b-orders-item__button js-item-dropdown-btn">
+                                                                <span class="b-orders-item__button-plus"></span>
+                                                                <span class="b-orders-item__button-minus"></span>
+                                                            </button>
+
+                                                            <div class="b-orders-item__select">
+                                                                <ul class="b-orders-item__select-list">
+                                                                    <li class="b-orders-item__select-item">
+                                                                        <a href="#" id="" data-link="" class="b-orders-item__select-link">
+                                                                            Оформить
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="b-orders-item__select-item">
+                                                                        <a href="#" id="" data-link="" class="b-orders-item__select-link">
+                                                                            Оформить через кассу
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="b-orders-item__select-item">
+                                                                        <a href="#" id="" data-link="" class="b-orders-item__select-link">
+                                                                            Отправить ссылку на оплату
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="b-orders-item__select-item">
+                                                                        <a href="#" id="" data-link="" class="b-orders-item__select-link">
+                                                                            Редактировать
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="b-orders-item__select-item">
+                                                                        <a href="#" id="" data-link="" class="b-orders-item__select-link">
+                                                                            Отменить заказ
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="b-orders-item__center">
+                                                        <div class="b-orders-item__order-info">
+                                                            <div class="b-orders-item__order-row">
+                                                                <a href="#" class="b-orders-item__order-number">
+                                                                    <span>Заказ №</span>
+                                                                    <span class="b-orders-item__order-number-value">
+                                                                        436500
+                                                                    </span>
+                                                                </a>
                                                                 <div class="b-orders-item__order-time">
                                                                     20:46:28
                                                                 </div>
@@ -226,6 +564,203 @@
                                                     </span>
                                                 </a>
                                             </div>
+                                        </ul>
+                                    </div>
+                                    <div class="b-work-orders__list-wrapper">
+                                        <div class="b-work-orders__date-line">
+                                            <p class="b-work-orders__date-value">
+                                                01.08.2025
+                                            </p>
+                                            <hr>
+                                        </div>
+
+                                        <ul class="b-work-orders__list">
+                                            <li class="b-work-orders__item b-orders-item">
+                                                <div class="b-orders-item__body">
+                                                    <div class="b-orders-item__header">
+                                                        <div class="b-orders-item__dropdown">
+                                                            <button type="button" class="b-orders-item__button js-item-dropdown-btn">
+                                                                <span class="b-orders-item__button-plus"></span>
+                                                                <span class="b-orders-item__button-minus"></span>
+                                                            </button>
+
+                                                            <div class="b-orders-item__select">
+                                                                <ul class="b-orders-item__select-list">
+                                                                    <li class="b-orders-item__select-item">
+                                                                        <a href="#" id="" data-link="" class="b-orders-item__select-link">
+                                                                            Оформить
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="b-orders-item__select-item">
+                                                                        <a href="#" id="" data-link="" class="b-orders-item__select-link">
+                                                                            Оформить через кассу
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="b-orders-item__select-item">
+                                                                        <a href="#" id="" data-link="" class="b-orders-item__select-link">
+                                                                            Отправить ссылку на оплату
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="b-orders-item__select-item">
+                                                                        <a href="#" id="" data-link="" class="b-orders-item__select-link">
+                                                                            Редактировать
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="b-orders-item__select-item">
+                                                                        <a href="#" id="" data-link="" class="b-orders-item__select-link">
+                                                                            Отменить заказ
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="b-orders-item__center">
+                                                        <div class="b-orders-item__order-info">
+                                                            <div class="b-orders-item__order-row">
+                                                                <a href="#" class="b-orders-item__order-number">
+                                                                    <span>Заказ №</span>
+                                                                    <span class="b-orders-item__order-number-value">
+                                                                        436500
+                                                                    </span>
+                                                                </a>
+                                                                <div class="b-orders-item__order-time">
+                                                                    20:46:28
+                                                                </div>
+
+                                                                <div class="b-orders-item__order-client-data">
+                                                                    <p class="b-orders-item__order-client-surname">
+                                                                        Punin
+                                                                    </p>
+                                                                    <p class="b-orders-item__order-client-city">
+                                                                        Комсомольск-на-Амуре
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="b-orders-item__order-row">
+                                                                <div class="b-orders-item__order-client">
+                                                                    <span>Клиент:</span>
+                                                                    <span class="b-orders-item__order-client-name">
+                                                                        атомик гараж
+                                                                        атомик гараж
+                                                                        атомик гараж
+                                                                        атомик гараж
+                                                                        атомик гараж
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="b-orders-item__order-row">
+                                                                <div class="b-orders-item__order-phone">
+                                                                    <span>Тел.:</span><span class="b-orders-item__order-phone-value">
+                                                                        +79819349764
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <ul class="b-orders-item__order-products">
+                                                            <li class="b-orders-item__order-product-item">
+                                                                <div class="b-orders-item__product-article">
+                                                                    90503221
+                                                                </div>
+
+                                                                <div class="b-orders-item__order-product-data">
+                                                                    <p class="b-orders-item__product-desc">
+                                                                        Левое стекло фары Audi Q3 8U 2014-2018 Рестайлинг
+                                                                    </p>
+                                                                    <span class="b-orders-item__product-quantity">1</span>
+                                                                    <span class="b-orders-item__product-price">15000</span>
+                                                                </div>
+                                                            </li>
+                                                            <li class="b-orders-item__order-product-item">
+                                                                <div class="b-orders-item__product-article">
+                                                                    90503222
+                                                                </div>
+
+                                                                <div class="b-orders-item__order-product-data">
+                                                                    <p class="b-orders-item__product-desc">
+                                                                        Правое стекло фары Audi Q3 8U 2014-2018 Рестайлинг
+                                                                    </p>
+                                                                    <span class="b-orders-item__product-quantity">3</span>
+                                                                    <span class="b-orders-item__product-price">3000</span>
+                                                                </div>
+                                                            </li>
+                                                            <li class="b-orders-item__order-product-item">
+                                                                <div class="b-orders-item__product-article">
+                                                                    90503222
+                                                                </div>
+
+                                                                <div class="b-orders-item__order-product-data">
+                                                                    <p class="b-orders-item__product-desc">
+                                                                        Правое стекло фары Audi Q3 8U 2014-2018 Рестайлинг
+                                                                    </p>
+                                                                    <span class="b-orders-item__product-quantity">3</span>
+                                                                    <span class="b-orders-item__product-price">3000</span>
+                                                                </div>
+                                                            </li>
+                                                            <li class="b-orders-item__order-product-item">
+                                                                <div class="b-orders-item__product-article">
+                                                                    90503222
+                                                                </div>
+
+                                                                <div class="b-orders-item__order-product-data">
+                                                                    <p class="b-orders-item__product-desc">
+                                                                        Правое стекло фары Audi Q3 8U 2014-2018 Рестайлинг
+                                                                    </p>
+                                                                    <span class="b-orders-item__product-quantity">3</span>
+                                                                    <span class="b-orders-item__product-price">3000</span>
+                                                                </div>
+                                                            </li>
+                                                            <li class="b-orders-item__order-product-item">
+                                                                <div class="b-orders-item__product-article">
+                                                                    90503222
+                                                                </div>
+
+                                                                <div class="b-orders-item__order-product-data">
+                                                                    <p class="b-orders-item__product-desc">
+                                                                        Правое стекло фары Audi Q3 8U 2014-2018 Рестайлинг
+                                                                    </p>
+                                                                    <span class="b-orders-item__product-quantity">3</span>
+                                                                    <span class="b-orders-item__product-price">3000</span>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+
+                                                        <a href="#" class="b-orders-item__link">
+                                                            <div class="b-orders-item__link-inner">
+                                                                <div class="b-orders-item__link-dots">
+                                                                    <i></i>
+                                                                    <i></i>
+                                                                    <i></i>
+                                                                </div>
+                                                                Подробнее
+                                                            </div>
+                                                        </a>
+                                                    </div>
+
+                                                    <div class="b-orders-item__final">
+                                                        <div class="b-orders-item__order-row">
+                                                            <div class="b-orders-item__price">
+                                                                Сумма заказа:
+                                                                <span class="b-orders-item__price-value">
+                                                                    37800
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="b-orders-item__order-row">
+                                                            <div class="b-orders-item__profit">
+                                                                Рентабельность:
+                                                                <span class="b-orders-item__profit-value">
+                                                                    14200
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
