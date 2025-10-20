@@ -1,3 +1,5 @@
+import Modal from "./modules/Modal.js";
+
 document.addEventListener("DOMContentLoaded", () => {
     const body = document.body;
 
@@ -5,6 +7,14 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
         body.classList.remove('preload');
     }, 500);
+
+        // inits modals:
+    const modal = new Modal({
+        isOpen: (modal) => {
+        },
+        isClose: (modal) => {
+        },
+    });
 
     const itemDropdonwBtns = document.querySelectorAll('.js-item-dropdown-btn');
 
@@ -16,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if(!select) return;
 
-            select.querySelector('.b-select__close').addEventListener('click', () => {
+            select.querySelector('.b-select__close')?.addEventListener('click', () => {
                 btn.classList.remove('js-dropdown-btn--active');
             })
         })

@@ -1,0 +1,242 @@
+.b-order-cell {
+    height: 100%;
+
+    &__body {
+        height: 100%;
+        padding: 15px 15px 25px;
+
+        background-color: #fff;
+        border: 1px solid rgba(234, 234, 234, 1);
+        box-shadow: 0px 0px 25px 5px rgba(0, 0, 0, 0.05);
+        box-sizing: border-box;
+
+        @include breakpointMF(tablet) {
+            padding: 12px 15px 18px;
+        }
+    }
+
+    &__title {
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+
+        color: rgba(213, 213, 213, 1);
+        font-family: Ubuntu;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 100%;
+        letter-spacing: 0;
+        text-transform: uppercase;
+
+        border-bottom: 1px solid rgba(234, 234, 234, 1);
+
+        @include breakpointMF(tablet) {
+            margin-bottom: 10px;
+        }
+    }
+
+    &__price-box {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    &__price-value {
+        font-family: Ubuntu;
+        font-size: 30px;
+        font-weight: 400;
+        line-height: 100%;
+        letter-spacing: 0;
+        white-space: nowrap;
+
+        &::after {
+            content: "\00A0руб.";
+        }
+
+        @include breakpointMF(tablet) {
+            font-size: 36px;
+        }
+    }
+
+    &__price-profit {
+        display: inline-block;
+        color: rgba(253, 109, 32, 0.62);
+        font-family: Ubuntu;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 100%;
+        letter-spacing: 0;
+        white-space: nowrap;
+
+        &::before {
+            content: "Рентабельность:\00A0";
+        }
+
+        &::after {
+            content: "\00A0руб.";
+        }
+    }
+}
+
+.b-order-cell {
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-auto-flow: row;
+        gap: 26px;
+
+        @include breakpointMF(tablet) {
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-flow: dense;
+            gap: 13px 26px;
+        }
+
+        @include breakpointMF(large-desktop) {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px 39px;
+        }
+    }
+
+    &__col {
+        &.b-order-cell__price-box {
+            @include breakpointMF(large-desktop) {
+                grid-row: 1 / 2;
+                grid-column: 1 / 3;
+            }
+        }
+
+        &.b-order-cell__col--responsible {
+            @include breakpointMF(tablet) {
+                grid-row: 1 / 2;
+                grid-column: 2 / 3;
+            }
+
+            @include breakpointMF(large-desktop) {
+                grid-row: 2 / 3;
+                grid-column: 2 / 3;
+            }
+
+        }
+
+        &.b-order-cell__col--client {
+            @include breakpointMF(tablet) {
+                grid-row: 2 / 3;
+                grid-column: 1 / 2;
+
+            }
+
+            @include breakpointMF(large-desktop) {
+                grid-row: 2 / 3;
+                grid-column: 1 / 2;
+            }
+        }
+
+        &.b-order-cell__col--phone {
+            @include breakpointMF(tablet) {
+                grid-row: 2 / 2;
+                grid-column: 3 / 4;
+            }
+
+            @include breakpointMF(large-desktop) {
+                grid-row: 3 / 4;
+                grid-column: 1 / 2;
+            }
+        }
+
+        &.b-order-cell__col--city {
+            @include breakpointMF(tablet) {
+                grid-row: 2 / 2;
+                grid-column: 2 / 3;
+            }
+
+            @include breakpointMF(large-desktop) {
+                grid-row: 3 / 4;
+                grid-column: 2 / 3;
+            }
+        }
+    }
+
+    &__input-wrapper {
+        position: relative;
+
+        display: flex;
+        flex-direction: column;
+
+        &>label {
+            position: absolute;
+            top: -6px;
+            left: 9px;
+
+            display: block;
+
+            height: 14px;
+            padding-inline: 2px;
+
+            color: rgba(171, 171, 171, 1);
+            font-family: Ubuntu;
+            font-size: 10px;
+            font-weight: 400;
+            line-height: 100%;
+            letter-spacing: 0;
+            text-align: left;
+
+            background: rgba(255, 255, 255, 1);
+
+            @include breakpointMF(tablet) {
+                position: static;
+
+                margin-bottom: 6px;
+                padding-inline: none;
+
+                font-size: 14px;
+
+                background-color: transparent;
+
+                &::after {
+                    content: ":";
+                }
+            }
+        }
+
+        &>input {
+            width: 100%;
+            height: 100%;
+            padding: 9px 8px 11px;
+
+            color: rgba(0, 0, 0, 1);
+
+            font-family: Inter;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 100%;
+            letter-spacing: 0;
+
+            background: rgba(255, 255, 255, 1);
+            box-sizing: border-box;
+            border: 1px solid rgba(219, 219, 219, 1);
+
+            @include placeholder {
+                color: rgba(0, 0, 0, 1);
+
+                font-family: Inter;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 100%;
+                letter-spacing: 0;
+            }
+
+            &:disabled {
+                background: rgba(255, 255, 255, 1);
+                border-color: rgba(219, 219, 219, 1);
+            }
+
+            @include breakpointMF(tablet) {
+                padding: 6px 9px 9px;
+
+                font-size: 16px;
+
+                background: rgba(250, 250, 250, 1);
+            }
+        }
+    }
+}

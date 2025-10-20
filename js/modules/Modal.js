@@ -5,7 +5,7 @@ export default class Modal {
       isClose: () => { },
     }
     this.options = Object.assign(defaultOptions, options);
-    this.modals = Array.from(document.querySelectorAll('.modal'));
+    this.modals = Array.from(document.querySelectorAll('.js-orders-modal'));
     this.speed = false;
     this.animation = false;
     this.isOpen = false;
@@ -34,11 +34,11 @@ export default class Modal {
           this.animation = animation ? animation : 'fade';
           this.speed = speed ? parseInt(speed) : 300;
           this.modalContainer = document.querySelector(`[data-target="${target}"]`);
-          this.open(this.modalContainer.closest(".modal"));
+          this.open(this.modalContainer.closest(".js-orders-modal"));
           return;
         }
 
-        if (e.target.closest('.modal-close')) {
+        if (e.target.closest('.js-orders-modal-close')) {
           this.close();
           return;
         }
@@ -60,7 +60,7 @@ export default class Modal {
 
       this.modals.forEach((mdl)=>{
         mdl.addEventListener('click', function (e) {
-          if (!e.target.classList.contains('modal__content') && !e.target.closest('.modal__content') && this.isOpen) {
+          if (!e.target.classList.contains('js-orders-modal-content') && !e.target.closest('.js-orders-modal-content') && this.isOpen) {
             this.close();
           }
         }.bind(this));
@@ -75,7 +75,7 @@ export default class Modal {
     this.animation = animation ? animation : 'fade';
     this.speed = speed ? parseInt(speed) : 300;
     this.modalContainer = document.querySelector(`[data-target="${target}"]`);
-    this.open(this.modalContainer.closest(".modal"));
+    this.open(this.modalContainer.closest(".js-orders-modal"));
   }
 
   open(thisModal) {
