@@ -16,7 +16,11 @@
         display: flex;
 
         .b-order-modal__inner-wrapper {
-            animation: slideFromRight 0.4s ease 0s 1 forwards;
+            animation: slideFromDown 0.4s ease 0s 1 forwards;
+
+            @include breakpointMF(large-desktop) {
+                animation: slideFromRight 0.4s ease 0s 1 forwards;
+            }
         }
     }
 
@@ -32,6 +36,7 @@
         position: relative;
         z-index: 100;
         flex-grow: 1;
+        height: 100%;
 
         color: var(--color-black, #000);
         background-color: var(--color-back-2, #F2F2F2);
@@ -40,6 +45,17 @@
             width: 100%;
             max-width: 1327px;
             margin-left: auto;
+        }
+    }
+
+    &__main {
+        max-height: calc(100% - 93px - 10px);
+        overflow: auto;
+        padding-bottom: 93px;
+
+        @include breakpointMF(tablet) {
+            max-height: calc(100% - 145px);
+            padding-bottom: 145px;
         }
     }
 
@@ -237,7 +253,7 @@
         right: 0;
         bottom: 0;
         left: 0;
-        z-index: 100;
+        z-index: 300;
 
         display: flex;
         align-items: center;
@@ -279,21 +295,39 @@
 
         @include breakpointMF(large-desktop) {
             grid-auto-flow: dense;
+            grid-template-areas:
+                "bo-products bo-information"
+                "bo-services bo-information"
+                "bo-services bo-comments"
+                "bo-expenses bo-comments";
             grid-template-columns: 1fr 509px;
+            grid-template-rows: minmax(260px, auto);
             gap: 30px;
         }
     }
 
-    &__order-comments,
     &__order-information {
         @include breakpointMF(large-desktop) {
-            grid-column: 2 / 3;
+            grid-area: bo-information;
+            height: 260px;
+        }
+    }
+
+    &__order-services {
+        @include breakpointMF(large-desktop) {
+            grid-area: bo-services;
+        }
+    }
+
+    &__order-products {
+        @include breakpointMF(large-desktop) {
+            grid-area: bo-products;
         }
     }
 
     &__order-expenses {
         @include breakpointMF(large-desktop) {
-            grid-column: 1 / 2;
+            grid-area: bo-expenses;
         }
     }
 
@@ -303,6 +337,24 @@
         align-items: stretch;
         gap: 28px;
 
+        @include breakpointMF(large-desktop) {
+            grid-area: bo-comments;
+            grid-row-start: -4;
+        }
+
+        &.b-order-modal__order-comments--new-comment {
+            .b-order-modal__order-comment-form {
+                display: block;
+            }
+
+            .b-order-modal__add-item-btn {
+                display: none;
+            }
+        }
+    }
+
+    &__order-comment-form {
+        display: none;
     }
 }
 
@@ -389,10 +441,12 @@
     letter-spacing: 0;
     text-align: center;
     white-space: nowrap;
+    text-decoration: none;
 
     box-sizing: border-box;
     border: 1px solid rgba(252, 117, 45, 0.54);
     background: transparent;
+
 }
 
 
@@ -403,5 +457,30 @@
 
     100% {
         transform: translateX(0);
+    }
+}
+
+@keyframes slideFromDown {
+    0% {
+        transform: translateY(+100%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+// delete pattern:
+.b-order-modal__order-products,
+.b-order-modal__order-services,
+.b-order-modal__order-expenses {
+    .b-order-cell {
+        &:not(:has(.b-order-cell__products-list > li)) {
+            height: auto;
+
+            .b-order-cell__table {
+                @include visuallyHidden();
+            }
+        }
     }
 }

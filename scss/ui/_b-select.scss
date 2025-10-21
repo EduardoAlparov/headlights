@@ -65,6 +65,28 @@
             right: 0;
             left: unset;
         }
+
+        &.b-select__dropdown--center {
+            top: 80%;
+            right: unset;
+            left: calc(50%);
+            transform: translateX(-50%);
+
+            @include breakpointMF(tablet) {
+                top: 16px;
+                right: unset;
+                left: calc(50% + 80px);
+                transform: translateX(0);
+            }
+
+            .b-select__close {
+                margin: 3px auto 0 5px;
+
+                @include breakpointMF(laptop) {
+                    // margin: 3px 3px 14px 5px;
+                }
+            }
+        }
     }
 
     &__close {

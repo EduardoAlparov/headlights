@@ -32,4 +32,21 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     });
 
+    const removeBtns = document.querySelectorAll('.js-product-remove-btn');
+
+    removeBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            setTimeout(() => {
+                btn.closest('.js-delete-target')?.remove();
+            }, 200);
+        })
+    })
+
+    const addCommentBtns = document.querySelectorAll('.js-add-comment-btn');
+
+    addCommentBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            btn.closest('.js-order-comment')?.classList.add('b-order-modal__order-comments--new-comment')
+        })
+    })
 })

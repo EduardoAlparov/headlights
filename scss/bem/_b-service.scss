@@ -1,0 +1,81 @@
+.b-service {
+    &__flex-wrapper {
+        display: grid;
+        grid-template-columns: minmax(141px, 1fr) minmax(141px, 1fr) 17px;
+        gap: 15px 10px;
+
+        @include breakpointMF(tablet) {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+    }
+
+    &__cell {
+        @include breakpointMF(tablet) {
+            flex: 1 1 100%;
+        }
+
+        &.b-service__cell--naming {
+            grid-column: 1 / 3;
+            grid-row: 1 / 2;
+
+            @include breakpointMF(tablet) {
+                flex-basis: 224px;
+            }
+
+            &.b-expenses__cell--naming {
+                @include breakpointMF(tablet) {
+                    flex-basis: 536px;
+                }
+            }
+        }
+
+        &.b-service__cell--master {
+            grid-column: 1 / 3;
+            grid-row: 2 / 3;
+
+            @include breakpointMF(tablet) {
+                flex-basis: 214px;
+            }
+        }
+
+
+        &.b-service__cell--costprice {
+            grid-column: 1 / 2;
+            // grid-row: 1 / 2;
+
+            @include breakpointMF(tablet) {
+                flex-basis: 105px;
+            }
+        }
+
+        &.b-service__cell--price {
+            grid-column: 2 / 3;
+
+            @include breakpointMF(tablet) {
+                flex-basis: 77px;
+            }
+
+            &.b-expenses__cell--price {
+                grid-column: 1 / 3;
+
+                @include breakpointMF(tablet) {
+                    flex-basis: 77px;
+                }
+            }
+        }
+
+        &.b-product__cell--delete {
+            grid-column: 3 / 4;
+            grid-row: 1 / 2;
+            place-items: center;
+            place-content: center;
+
+            @include breakpointMF(tablet) {
+                flex-basis: 23px;
+                margin-left: auto;
+            }
+        }
+    }
+}

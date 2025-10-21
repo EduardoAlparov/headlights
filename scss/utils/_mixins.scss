@@ -13,29 +13,6 @@
     }
 }
 
-@mixin h1 {
-    @include font(7rem, 1.15, 600, $size-32);
-}
-
-@mixin h2 {
-    @include font(5.2rem, 1.25, 600, $size-24);
-}
-
-@mixin text {
-    @include font;
-}
-
-@mixin text-sm {
-    @include font(1.4rem);
-}
-
-@mixin text-default {
-    @include text;
-
-    @include media(tablet) {
-        @include text-sm;
-    }
-}
 
 @mixin color($name, $color) {
     ._bg-#{$name} {
@@ -233,7 +210,7 @@
 
 @mixin breakpointMF($class) {
     @if $class ==ultra-desktop {
-        @media only screen and (min-width: 1920px) {
+        @media only screen and (min-width: 2060px) {
             @content;
         }
     }
@@ -278,5 +255,11 @@
         @media only screen and (min-width: 577px) {
             @content;
         }
+    }
+}
+
+@mixin hide-on-tablet {
+    @include breakpointMF(tablet) {
+        display: none;
     }
 }
