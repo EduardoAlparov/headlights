@@ -12,7 +12,8 @@
         display: none;
 
         border: 1px solid #E1E1E1;
-        background: #FFF;
+        background-color: #FFF;
+        border-radius: 10px;
         box-shadow: 0 0 15px 8px rgba(0, 0, 0, 0.05);
 
         @include breakpointMF(laptop) {
@@ -47,6 +48,7 @@
                     transition-timing-function: ease-in-out;
 
                     background-color: var(--color-white, #fff);
+                    border-radius: 10px;
 
                     @include breakpointMF(laptop) {
                         min-width: 226px;
@@ -81,10 +83,29 @@
 
             .b-select__close {
                 margin: 3px auto 0 5px;
+            }
+        }
 
-                @include breakpointMF(laptop) {
-                    // margin: 3px 3px 14px 5px;
-                }
+        &.b-select__dropdown--bottom {
+            top: 80%;
+            right: unset;
+            left: calc(50%);
+            transform: translateX(-50%);
+
+            @include breakpointMF(tablet) {
+                top: 16px;
+                right: unset;
+                left: calc(50% + 80px);
+                transform: translateX(0);
+            }
+
+            @include breakpointMF(large-desktop) {
+                top: unset;
+                bottom: 0;
+            }
+
+            .b-select__close {
+                margin: 3px auto 0 5px;
             }
         }
     }
@@ -99,7 +120,7 @@
         width: 48px;
         height: 48px;
         flex-shrink: 0;
-        margin: 3px 3px 14px auto;
+        margin: 3px auto 14px 3px;
 
         background-color: transparent;
 

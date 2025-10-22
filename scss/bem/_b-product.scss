@@ -1,43 +1,36 @@
 .b-product {
-    &__flex-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    &__grid-wrapper {
         display: grid;
-        grid-template-columns: minmax(87px, 1fr) 57px 53px 78px 17px;
-        gap: 15px 10px;
+        grid-template-columns: repeat(4, 0.25fr);
+        grid-template-rows: repeat(2, auto);
+        gap: 19px 10px;
+        flex: 1 1 auto;
 
         @include breakpointMF(tablet) {
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            grid-template-columns: minmax(296px, 1fr) minmax(85px, 1fr) minmax(48px, 1fr) minmax(45px, 1fr) minmax(85px, 1fr);
+            grid-template-rows: repeat(1, auto);
+            gap: 20px;
+        }
+
+
+        @include breakpointMF(large-desktop) {
+            grid-template-columns: minmax(296px, 1fr) minmax(92px, 1fr) minmax(85px, 1fr) minmax(48px, 1fr) minmax(45px, 1fr) minmax(85px, 1fr);
         }
     }
 
     &__cell {
-        @include breakpointMF(tablet) {
-            flex: 1 1 100%;
-        }
 
         &.b-product__cell--article {
+            display: none;
 
-            @include breakpointMF(tablet) {
-                flex-basis: 83px;
-            }
-
-            &.b-product__cell--article--hidden {
-                display: none;
-                opacity: 0;
-
-                @include breakpointMF(tablet) {
-                    display: block;
-                }
-            }
-
-            &:not(.b-product__cell--article--hidden) {
-                grid-column: 1 / 6;
-                grid-row: 1 / 2;
-
-                &~.b-product__cell--delete {
-                    grid-row: 2 / 3;
-                }
+            @include breakpointMF(large-desktop) {
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
         }
 
@@ -45,12 +38,21 @@
             @include breakpointMF(tablet) {
                 flex-basis: 90px;
             }
+
+            .b-product__input-wrapper {
+                input {
+                    @include breakpointMF(tablet) {
+                        text-align: center;
+                    }
+                }
+            }
         }
 
         &.b-product__cell--discount {
             @include breakpointMF(tablet) {
                 flex-basis: 60px;
             }
+
         }
 
         &.b-product__cell--quantity {
@@ -63,46 +65,60 @@
             grid-column: 1 / 5;
 
             @include breakpointMF(tablet) {
-                flex-basis: 224px;
+                grid-column: 1 / 2;
+            }
+
+            .b-product__article-value {
+                @include breakpointMF(large-desktop) {
+                    display: none;
+                }
+            }
+
+            .b-product__text {
+                padding-left: 11px;
+
             }
         }
 
         &.b-product__cell--price {
             @include breakpointMF(tablet) {
-                flex-basis: 77px;
+                // flex-basis: 77px;
             }
-        }
 
-        &.b-product__cell--delete {
-            place-items: center;
-            place-content: center;
-            grid-column: 5 / 6;
-            grid-row: 1 / 2;
-
-            @include breakpointMF(tablet) {
-                flex-basis: 23px;
-                margin-left: auto;
+            .b-product__input-wrapper {
+                input {
+                    @include breakpointMF(tablet) {
+                        text-align: center;
+                    }
+                }
             }
         }
     }
 
     &__article-value {
+        color: rgba(171, 171, 171, 1);
         font-family: Ubuntu;
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 400;
         line-height: 100%;
-        letter-spacing: 0;
+        letter-spacing: 0%;
+        text-align: left;
+
+
+        @include breakpointMF(large-desktop) {
+            color: rgba(0, 0, 0, 1);
+            font-family: Ubuntu;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 100%;
+            letter-spacing: 0;
+            text-align: center;
+        }
     }
 
     &__add-item {
         position: relative;
-
-        max-width: calc(100% - 27px);
         margin-top: 20px;
-
-        @include breakpointMF(tablet) {
-            max-width: 100%;
-        }
     }
 
     &__add-item-btn {
@@ -113,7 +129,8 @@
         }
     }
 
-    &__desc {
+    &__text {
+        max-width: 30ch;
         font-family: Ubuntu;
         font-size: 16px;
         font-weight: 400;
@@ -122,22 +139,41 @@
 
         @include maxSizeText(2);
     }
-}
 
-.b-remove-btn {
-    display: grid;
-    place-items: center;
-    width: 17px;
-    height: 17px;
-    flex-shrink: 0;
+    &__remove-btn {
+        @include breakpointMF(tablet) {
+            margin-left: 7px;
+        }
+    }
 
-    border: none;
-    outline: none;
-    background-color: transparent;
+    &.b-product--no-article {
+        .b-product__cell--article {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+    }
 
-    .icon {
-        display: block;
-        width: 16px;
-        height: 16px;
+    &.b-product--has-article {
+        .b-product__cell--purchase {
+            display: none;
+            opacity: 0;
+
+            @include breakpointMF(tablet) {
+                display: flex;
+            }
+        }
+
+        .b-product__cell--price {
+            grid-column: 3 / 5;
+
+            @include breakpointMF(tablet) {
+                grid-column: unset;
+            }
+
+            input {
+                text-align: center;
+            }
+        }
     }
 }

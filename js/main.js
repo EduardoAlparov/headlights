@@ -20,7 +20,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     itemDropdonwBtns.forEach( (btn) => {
         btn.addEventListener('click', (e) => {
-            btn.classList.toggle('js-dropdown-btn--active');
+            btn.classList.add('js-dropdown-btn--active');
+
+            window.addEventListener('click', (event) => {
+                if((!btn.parentElement.contains(event.target))) {
+                    if(btn.classList.contains('js-dropdown-btn--active')) {
+                        btn.classList.remove('js-dropdown-btn--active');
+                    }
+                }
+            });
 
             const select = e.target.closest('.b-select');
 
@@ -29,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
             select.querySelector('.b-select__close')?.addEventListener('click', () => {
                 btn.classList.remove('js-dropdown-btn--active');
             })
-        })
+        });
     });
 
     const removeBtns = document.querySelectorAll('.js-product-remove-btn');

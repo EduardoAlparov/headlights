@@ -7,19 +7,27 @@
 
         background-color: #fff;
         border: 1px solid rgba(234, 234, 234, 1);
+        border-radius: 10px;
         box-shadow: 0px 0px 25px 5px rgba(0, 0, 0, 0.05);
         box-sizing: border-box;
 
         @include breakpointMF(tablet) {
-            padding: 12px 15px 18px;
+            padding: 12px 15px 30px;
         }
+    }
+
+    &__grid {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
     }
 
     &__title {
         margin-bottom: 15px;
-        padding-bottom: 10px;
+        padding-bottom: 5px;
 
-        color: rgba(213, 213, 213, 1);
+        color: rgba(168, 172, 179, 1);
         font-family: Ubuntu;
         font-size: 16px;
         font-weight: 700;
@@ -29,8 +37,9 @@
 
         border-bottom: 1px solid rgba(234, 234, 234, 1);
 
-        @include breakpointMF(tablet) {
-            margin-bottom: 10px;
+        @include breakpointMF(large-desktop) {
+            margin-bottom: 12px;
+            padding-bottom: 6px;
         }
     }
 
@@ -94,7 +103,7 @@
         display: flex;
         flex-direction: column;
         align-items: stretch;
-        gap: 10px;
+        gap: 20px;
 
         @include breakpointMF(tablet) {
             flex-direction: row;
@@ -107,11 +116,7 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: 5px;
-
-        @include breakpointMF(tablet) {
-            gap: 20px;
-        }
+        gap: 10px;
 
         &:has(.b-order-cell__comment-value) {
             @include breakpointMF(tablet) {
@@ -138,84 +143,14 @@
     &__add-comment-btn {
         margin-top: 20px;
     }
-}
 
-// info grid:
-.b-order-cell {
-    &__grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-auto-flow: row;
-        gap: 26px;
+    &__remove-btn {
+        opacity: 0;
+        pointer-events: none;
+        visibility: hidden;
 
         @include breakpointMF(tablet) {
-            grid-template-columns: repeat(3, 1fr);
-            grid-auto-flow: dense;
-            gap: 13px 26px;
-        }
-
-        @include breakpointMF(large-desktop) {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px 39px;
-        }
-    }
-
-    &__col {
-        &.b-order-cell__price-box {
-            @include breakpointMF(large-desktop) {
-                grid-row: 1 / 2;
-                grid-column: 1 / 3;
-            }
-        }
-
-        &.b-order-cell__col--responsible {
-            @include breakpointMF(tablet) {
-                grid-row: 1 / 2;
-                grid-column: 2 / 3;
-            }
-
-            @include breakpointMF(large-desktop) {
-                grid-row: 2 / 3;
-                grid-column: 2 / 3;
-            }
-
-        }
-
-        &.b-order-cell__col--client {
-            @include breakpointMF(tablet) {
-                grid-row: 2 / 3;
-                grid-column: 1 / 2;
-
-            }
-
-            @include breakpointMF(large-desktop) {
-                grid-row: 2 / 3;
-                grid-column: 1 / 2;
-            }
-        }
-
-        &.b-order-cell__col--phone {
-            @include breakpointMF(tablet) {
-                grid-row: 2 / 2;
-                grid-column: 3 / 4;
-            }
-
-            @include breakpointMF(large-desktop) {
-                grid-row: 3 / 4;
-                grid-column: 1 / 2;
-            }
-        }
-
-        &.b-order-cell__col--city {
-            @include breakpointMF(tablet) {
-                grid-row: 2 / 2;
-                grid-column: 2 / 3;
-            }
-
-            @include breakpointMF(large-desktop) {
-                grid-row: 3 / 4;
-                grid-column: 2 / 3;
-            }
+            margin-left: 7px;
         }
     }
 }
@@ -242,11 +177,12 @@
 
             color: rgba(171, 171, 171, 1);
             font-family: Ubuntu;
-            font-size: 10px;
+            font-size: 12px;
             font-weight: 400;
             line-height: 100%;
             letter-spacing: 0;
             text-align: left;
+            white-space: nowrap;
 
             background: rgba(255, 255, 255, 1);
 
@@ -276,7 +212,7 @@
         &>input {
             width: 100%;
             height: 100%;
-            padding: 3px 8px 11px;
+            padding: 9px 10px 11px;
 
             color: rgba(0, 0, 0, 1);
 
@@ -289,6 +225,7 @@
             background: rgba(255, 255, 255, 1);
             box-sizing: border-box;
             border: 1px solid rgba(219, 219, 219, 1);
+            border-radius: 5px;
             outline: none;
 
             @include placeholder {
@@ -307,23 +244,48 @@
             }
 
             @include breakpointMF(tablet) {
-                height: 26px;
-                padding: 3px 4px 4px;
-
+                padding: 8px 10px;
                 font-size: 16px;
-
-                background: rgba(250, 250, 250, 1);
+                background: rgba(255, 255, 255, 1);
             }
         }
 
         &>textarea {
             min-height: 72px;
             height: auto;
+            resize: none;
+            overflow: auto;
+
+            @include breakpointMF(tablet) {
+                font-size: 14px;
+            }
         }
 
         &.b-order-cell__input-wrapper--center-number {
+            &>label {
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
             &>input {
                 text-align: center;
+            }
+        }
+
+        &.b-order-cell__input-wrapper--no-border {
+            align-items: flex-start;
+
+            &>label {
+                position: static;
+                padding-inline: 0;
+                background: transparent;
+                transform: unset;
+            }
+
+            &>input {
+                padding-inline: 0;
+                padding-block: 0;
+                border-width: 0;
             }
         }
     }
@@ -331,14 +293,55 @@
 
 // head's keys:
 .b-order-cell {
-    &__table-head {
+    &__table {
         display: none;
         align-items: center;
-        gap: 8px;
+        gap: 15px;
+
         margin-bottom: 20px;
 
         @include breakpointMF(tablet) {
             display: flex;
+        }
+    }
+
+    &__table-head {
+        flex: 1 1 auto;
+
+        @include breakpointMF(tablet) {
+            display: grid;
+            grid-template-columns: minmax(296px, 1fr) minmax(85px, 1fr) minmax(48px, 1fr) minmax(45px, 1fr) minmax(85px, 1fr);
+            grid-template-rows: repeat(1, auto);
+            gap: 20px;
+        }
+
+        @include breakpointMF(large-desktop) {
+            grid-template-columns: minmax(296px, 1fr) minmax(92px, 1fr) minmax(85px, 1fr) minmax(48px, 1fr) minmax(45px, 1fr) minmax(85px, 1fr);
+        }
+
+        &.b-order-cell__table-head--services {
+            @include breakpointMF(tablet) {
+                display: grid;
+                grid-template-columns: minmax(426px, 1fr) minmax(85px, 1fr) minmax(85px, 1fr);
+                grid-template-rows: repeat(1, auto);
+                gap: 20px;
+            }
+
+            @include breakpointMF(large-desktop) {
+                grid-template-columns: minmax(296px, 1fr) minmax(213px, 1fr) minmax(85px, 1fr) minmax(85px, 1fr);
+            }
+        }
+
+        &.b-order-cell__table-head--two-elements {
+            @include breakpointMF(tablet) {
+                display: grid;
+                grid-template-columns: minmax(531px, 1fr) minmax(85px, 1fr);
+                grid-template-rows: repeat(1, auto);
+            }
+
+            @include breakpointMF(large-desktop) {
+                grid-template-columns: minmax(670px, 1fr) minmax(85px, 1fr);
+            }
         }
     }
 
@@ -352,11 +355,33 @@
             font-weight: 400;
             line-height: 100%;
             letter-spacing: 0;
+            white-space: nowrap;
+            text-align: center;
+        }
+
+        &.b-order-cell__subtitle {
+            &>span {
+                color: rgba(171, 171, 171, 1);
+                font-family: Ubuntu;
+                font-size: 12px;
+                font-weight: 400;
+                line-height: 100%;
+                letter-spacing: 0;
+                white-space: nowrap;
+                text-align: center;
+            }
+        }
+
+        &:not(.b-order-cell__table-column--naming, .b-order-cell__table-column--master) {
+            display: flex;
+            justify-content: center;
         }
 
         &.b-order-cell__table-column--article {
-            @include breakpointMF(tablet) {
-                flex-basis: 83px;
+            display: none;
+
+            @include breakpointMF(large-desktop) {
+                display: flex;
             }
         }
 
@@ -367,7 +392,7 @@
 
             &.b-order-cell__table-column--all-grow {
                 @include breakpointMF(tablet) {
-                    flex-basis: 536px;
+                    flex-basis: 100%;
                 }
             }
         }
@@ -397,8 +422,10 @@
         }
 
         &.b-order-cell__table-column--master {
-            @include breakpointMF(tablet) {
-                flex-basis: 214px;
+            display: none;
+
+            @include breakpointMF(large-desktop) {
+                display: flex;
             }
         }
 
@@ -425,10 +452,6 @@
         flex-direction: column;
         align-items: stretch;
         gap: 20px;
-
-        @include breakpointMF(tablet) {
-            gap: 10px;
-        }
     }
 
     &__product {

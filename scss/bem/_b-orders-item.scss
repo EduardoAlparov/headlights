@@ -3,9 +3,12 @@
     flex-direction: column;
     align-items: stretch;
 
+    padding: 22px 21px 29px 21px;
+
     border: 1px solid var(--color-border-2, #CFCFCF);
     background-color: var(--color-white, #fff);
     box-shadow: 0 0 25px 5px rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
 
     color: var(--color-black, #000);
     font-family: Ubuntu;
@@ -13,8 +16,6 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-
-    padding: 22px 21px 29px 21px;
 
     @include breakpointMF(tablet) {
         padding: 22px 36px 29px;
@@ -51,9 +52,11 @@
         background-color: var(--color-white, #fff);
         box-shadow: 0 0 15px 8px rgba(0, 0, 0, 0.05);
         border: 1px solid #E1E1E1;
+        border-radius: 10px;
 
         @include breakpointMF(tablet) {
-            left: -20px;
+            top: -14px;
+            left: -12px;
         }
 
         &>ul {
@@ -78,6 +81,7 @@
                     transition-timing-function: ease-in-out;
 
                     background-color: var(--color-white, #fff);
+                    border-radius: 10px;
 
                     @include hover {
                         color: #FD6D20;
@@ -143,11 +147,13 @@
         }
 
         &.b-work-orders__fixed-add-button {
-            width: 74px;
-            height: 74px;
+            width: 55px;
+            height: 55px;
+
+            border-radius: 20px;
 
             &>span {
-                width: 42px;
+                width: 31px;
                 height: 3px;
             }
         }
@@ -160,7 +166,6 @@
 
         flex-grow: 1;
     }
-
 
     &__order-products,
     &__order-info {
@@ -191,28 +196,34 @@
         white-space: nowrap;
 
         @include breakpointMF(tablet) {
-            position: absolute;
             display: block;
-            right: 0;
-            top: calc(100% + 40px);
+            margin-left: auto;
         }
     }
 
     &__order-client-data {
-        position: absolute;
-        top: 0;
-        right: 0;
-
-        @include breakpointMF(tablet) {
-            position: relative;
-            margin-left: auto;
-        }
+        display: contents;
     }
 
     &__order-row {
         display: flex;
         align-items: center;
         gap: 20px;
+
+        &--wrap {
+            @include breakpointMF(laptop) {
+                flex-wrap: wrap;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .b-orders-item__order-number {
+                @include breakpointMF(laptop) {
+                    flex-grow: 1;
+                    flex-basis: 100%;
+                }
+            }
+        }
     }
 
     &__order-products {
@@ -222,7 +233,7 @@
     &__order-product-item {
         margin-bottom: 30px;
 
-        &:nth-child(n+4) {
+        &:nth-child(n+3) {
             display: none;
         }
 
@@ -250,6 +261,16 @@
         }
     }
 
+    &__order-client-surname {
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        @include breakpointMF(tablet) {
+            // position: relative;
+            // margin-left: auto;
+        }
+    }
 
     &__order-product-data {
         display: flex;
@@ -268,6 +289,7 @@
 
     &__product-desc {
         max-width: 40ch;
+        font-weight: 300;
 
         @include maxSizeText(2);
     }
@@ -344,26 +366,6 @@
 
         @include breakpointMF(tablet) {
             display: flex;
-        }
-    }
-
-    &__link-dots {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        padding-bottom: 3px;
-
-        &>i {
-            display: inline-block;
-            flex-shrink: 0;
-
-            width: 10px;
-            height: 10px;
-
-            background-image: url("data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2210%22%20height%3D%229%22%20viewBox%3D%220%200%2010%209%22%20fill%3D%22none%22%3E%0A%20%20%3Cellipse%20cx%3D%225.43021%22%20cy%3D%224.5%22%20rx%3D%224.49002%22%20ry%3D%224.5%22%20fill%3D%22%23BEBEBE%22%2F%3E%0A%3C%2Fsvg%3E");
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
         }
     }
 }

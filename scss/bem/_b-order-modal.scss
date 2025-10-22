@@ -43,7 +43,7 @@
 
         @include breakpointMF(large-desktop) {
             width: 100%;
-            max-width: 1327px;
+            max-width: 1373px;
             margin-left: auto;
         }
     }
@@ -71,22 +71,43 @@
         padding: 14px 25px 0;
 
         @include breakpointMF(tablet) {
-            margin-bottom: 23px;
+            margin-bottom: 30 px;
             padding: 36px 25px 0;
         }
 
         @include breakpointMF(large-desktop) {
-            padding: 36px 33px 0 40px;
+            padding: 36px 30px 0;
+        }
+    }
+
+    &__header-controls {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        margin-bottom: 22px;
+
+        @include breakpointMF(large-desktop) {
+            display: none;
         }
     }
 
     &__header-col {
-        margin-right: 16px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+
+        @include breakpointMF(tablet) {
+            flex-direction: row;
+            align-items: baseline;
+            gap: 10px;
+        }
     }
 
-    &__arrow-down {
-        width: 29px;
-        height: 29px;
+    &__arrow-back {
+        display: block;
+        width: 32px;
+        height: 15px;
 
         margin-right: 14px;
 
@@ -121,22 +142,20 @@
     }
 
     &__title {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 5px;
+        color: rgba(0, 0, 0, 1);
 
-        @include breakpointMF(tablet) {
-            flex-direction: row;
-            align-items: baseline;
-            gap: 10px;
-        }
+        font-family: Ubuntu;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 100%;
+        letter-spacing: 0;
+        text-align: center;
     }
 
     &__date-value {
         display: inline-flex;
         white-space: nowrap;
         font-family: Ubuntu;
-        font-size: 16px;
         font-weight: 400;
         line-height: 100%;
 
@@ -147,20 +166,20 @@
         &::after {
             content: ")";
         }
-
-        @include breakpointMF(tablet) {
-            font-size: 20px;
-        }
     }
 
+    &__date-value,
     &__order-number-text,
     &__order-number-value {
         white-space: nowrap;
+        font-size: 20px;
+
+        @include breakpointMF(tablet) {
+            font-size: 30px;
+        }
     }
 
     &__more {
-        margin-left: auto;
-
 
         @include breakpointMF(large-desktop) {
             display: none;
@@ -276,86 +295,72 @@
     }
 
     &__main {
-        padding-inline: 7px;
-
-        @include breakpointMF(large-desktop) {
-            padding-inline: 40px 33px;
-        }
-    }
-
-    &__grid {
         display: grid;
         grid-template-columns: 100%;
-        grid-auto-flow: row;
-        gap: 25px;
+
+        gap: 20px;
+
+        padding-inline: 7px;
 
         @include breakpointMF(tablet) {
             gap: 30px;
         }
 
         @include breakpointMF(large-desktop) {
-            grid-auto-flow: dense;
             grid-template-areas:
-                "bo-products bo-information"
-                "bo-services bo-information"
-                "bo-services bo-comments"
-                "bo-expenses bo-comments";
-            grid-template-columns: 1fr 509px;
-            grid-template-rows: minmax(260px, auto);
+                "bo-first bo-biggest"
+                "bo-first bo-biggest"
+                "bo-comment bo-biggest";
+            grid-template-columns: 1fr 849px;
+            grid-auto-rows: 358px auto auto;
+            padding-inline: 30px;
+        }
+    }
+
+    &__grid-column {
+        display: grid;
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+
+        @include breakpointMF(tablet) {
             gap: 30px;
         }
-    }
 
-    &__order-information {
         @include breakpointMF(large-desktop) {
-            grid-area: bo-information;
-            height: 260px;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        &.b-order-modal__grid-column--first {
+            @include breakpointMF(large-desktop) {
+                grid-area: bo-first;
+            }
+        }
+
+        &.b-order-modal__grid-column--biggest {
+            @include breakpointMF(large-desktop) {
+                grid-area: bo-biggest;
+            }
+        }
+
+        &.b-order-modal__grid-column--comment {
+            @include breakpointMF(large-desktop) {
+                grid-area: bo-comment;
+                grid-row-start: 2;
+            }
         }
     }
 
-    &__order-services {
-        @include breakpointMF(large-desktop) {
-            grid-area: bo-services;
-        }
-    }
-
-    &__order-products {
-        @include breakpointMF(large-desktop) {
-            grid-area: bo-products;
-        }
-    }
-
-    &__order-expenses {
-        @include breakpointMF(large-desktop) {
-            grid-area: bo-expenses;
-        }
-    }
 
     &__order-comments {
         display: flex;
         flex-direction: column;
         align-items: stretch;
         gap: 28px;
-
-        @include breakpointMF(large-desktop) {
-            grid-area: bo-comments;
-            grid-row-start: -4;
-        }
-
-        &.b-order-modal__order-comments--new-comment {
-            .b-order-modal__order-comment-form {
-                display: block;
-            }
-
-            .b-order-modal__add-item-btn {
-                display: none;
-            }
-        }
     }
 
-    &__order-comment-form {
-        display: none;
-    }
 }
 
 
@@ -408,7 +413,6 @@
     }
 }
 
-
 .save-changes-link,
 .cancel-changes-link {
     &__tablet-text {
@@ -446,9 +450,8 @@
     box-sizing: border-box;
     border: 1px solid rgba(252, 117, 45, 0.54);
     background: transparent;
-
+    border-radius: 5px;
 }
-
 
 @keyframes slideFromRight {
     0% {
@@ -482,5 +485,23 @@
                 @include visuallyHidden();
             }
         }
+    }
+}
+
+.b-remove-btn {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+
+    border: none;
+    outline: none;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+
+    .icon {
+        display: block;
+        width: 20px;
+        height: 20px;
     }
 }
