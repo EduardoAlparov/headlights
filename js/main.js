@@ -57,4 +57,65 @@ document.addEventListener("DOMContentLoaded", () => {
             btn.closest('.js-order-comment')?.classList.add('b-order-modal__order-comments--new-comment')
         })
     })
+
+      const choicesEls = document.querySelectorAll('.js-choice');
+
+      choicesEls.forEach((select) => {
+          const choices = new Choices(select, {
+            items: [],
+            choices: [
+                {
+                    value: 'Сергей Филипов',
+                    label: 'Сергей Филипов',
+                    selected: true,
+                    disabled: false,
+                },
+                {
+                    value: 'Василий Петрович',
+                    label: 'Василий Петрович',
+                    selected: false,
+                    disabled: false,
+                },
+                {
+                    value: 'Генадий Алексеевич',
+                    label: 'Генадий Алексеевич',
+                    selected: false,
+                    disabled: false,
+                },
+                {
+                    value: 'Руслан Генадиевич',
+                    label: 'Руслан Генадиевич',
+                    selected: false,
+                    disabled: false,
+                },
+                {
+                    value: 'Тамара Ивановна',
+                    label: 'Тамара Ивановна',
+                    selected: false,
+                    disabled: false,
+                },
+                {
+                    value: 'Вячеслав Огурцов',
+                    label: 'Вячеслав Огурцов',
+                    selected: false,
+                    disabled: false,
+                },
+                {
+                    value: 'Иван Иванов',
+                    label: 'Иван Иванов',
+                    selected: false,
+                    disabled: false,
+                },
+                {
+                    value: 'Иван Петров',
+                    label: 'Иван Петров',
+                    selected: false,
+                    disabled: false,
+                },
+            ],
+            itemSelectText: false,
+            searchEnabled: false,
+          });
+      });
+
 })

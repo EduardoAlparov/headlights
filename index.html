@@ -12,6 +12,13 @@
         <link rel="icon" href="images/favicon.png">
 
         <link rel="stylesheet" href="./styles.css">
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/choices.js@11.1.0/public/assets/styles/choices.min.css"
+        />
+
+        <!-- Include Choices JavaScript (latest) -->
+        <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
     </head>
     <body class="preload">
         <div class="wrapper">
@@ -1212,15 +1219,8 @@
                                                                     <div class="b-service__select-label">
                                                                         Мастер
                                                                     </div>
-                                                                    <div class="b-custom-select">
-                                                                        <select name="order-service-master" id="order-service-master-select">
-                                                                            <option>Сергей Филиппов</option>
-                                                                            <option>Иван Иванов</option>
-                                                                            <option>Иван Иванов</option>
-                                                                            <option>Иван Иванов</option>
-                                                                            <option>Иван Иванов</option>
-                                                                        </select>
-                                                                        <div class="b-custom-select__arrow"></div>
+                                                                    <div class="b-service__select-wrapper">
+                                                                        <select id="service-select" class="js-choice"></select>
                                                                     </div>
                                                                 </div>
                                                             </div>
