@@ -1,0 +1,146 @@
+.b-result-item {
+    &__body {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        border-radius: 5px;
+        transition: background 0.3s ease;
+
+        @include breakpointMF(tablet) {
+            flex-direction: row-reverse;
+            gap: 8px;
+
+            padding: 7px 10px;
+        }
+
+        @include hover {
+            background: rgba(247, 247, 247, 1);
+        }
+
+        &:has(input:checked) {
+            background: rgba(252, 117, 45, 0.1);
+        }
+    }
+
+    &__label {
+        position: absolute;
+        inset: 0;
+        cursor: pointer;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+
+        flex-grow: 1;
+
+        @include breakpointMF(tablet) {
+            display: grid;
+            grid-template-columns: 118px 1fr repeat(2, 64px) 80px;
+            gap: 10px;
+        }
+
+        &>* {
+            align-self: center;
+        }
+    }
+
+    &__quantity,
+    &__discount {
+        display: none;
+
+        @include breakpointMF(tablet) {
+            display: block;
+        }
+    }
+
+    &__checkbox {
+        display: grid;
+        place-items: center;
+        flex-shrink: 0;
+
+        &>input[type="checkbox"] {
+            width: 14px;
+            height: 14px;
+            padding: 0;
+            margin: 0;
+
+            box-sizing: border-box;
+            border: 1px solid rgba(217, 217, 217, 1);
+            background: rgba(255, 255, 255, 1);
+        }
+    }
+
+    &__article {
+        display: inline-flex;
+
+        color: rgba(171, 171, 171, 1);
+        font-family: Ubuntu;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 100%;
+        text-align: left;
+        white-space: nowrap;
+
+        @include breakpointMF(tablet) {
+            color: rgba(0, 0, 0, 1);
+            font-size: 16px;
+        }
+
+        &-text {
+            @include breakpointMF(tablet) {
+                display: none;
+            }
+        }
+    }
+
+    &__discount-value,
+    &__quantity-value,
+    &__text-value {
+        color: rgba(0, 0, 0, 1);
+
+        font-family: Ubuntu;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 100%;
+        text-align: left;
+
+        @include breakpointMF(tablet) {
+            font-size: 16px;
+        }
+    }
+
+    &__text-value {
+        max-width: 30ch;
+    }
+
+    &__discount,
+    &__quantity {
+        text-align: center;
+    }
+
+    &__price-value {
+        color: rgba(82, 82, 82, 1);
+        font-family: Ubuntu;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 100%;
+
+        @include breakpointMF(tablet) {
+            color: rgba(0, 0, 0, 1);
+            font-size: 16px;
+        }
+
+        &::after {
+            content: "\00A0₽";
+
+            @include breakpointMF(tablet) {
+                content: none;
+            }
+        }
+    }
+
+}

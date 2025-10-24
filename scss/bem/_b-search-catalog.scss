@@ -1,0 +1,85 @@
+.b-search-catalog {
+    &__searchbar {
+        height: 38px;
+        margin-bottom: 20px;
+
+        @include breakpointMF(tablet) {
+            height: 62px;
+            margin-bottom: 14px;
+        }
+
+        @include breakpointMF(large-desktop) {
+            margin-bottom: 25px;
+        }
+
+        &>input {
+            width: 100%;
+            height: 100%;
+            padding: 9px 10px 11px;
+
+            color: rgba(0, 0, 0, 1);
+
+            font-family: Inter;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 100%;
+            letter-spacing: 0;
+
+            box-sizing: border-box;
+            background: rgba(255, 255, 255, 1);
+            border: 1px solid rgba(227, 230, 233, 1);
+            border-radius: 5px;
+            outline: none;
+
+            @include placeholder {
+                color: rgba(0, 0, 0, 1);
+
+                font-family: Inter;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 100%;
+                letter-spacing: 0;
+
+                @include breakpointMF(tablet) {
+                    font-size: 16px;
+                }
+            }
+
+            &:disabled {
+                background: rgba(255, 255, 255, 1);
+                border-color: rgba(219, 219, 219, 1);
+            }
+
+            @include breakpointMF(tablet) {
+                padding: 22px 16px;
+                font-size: 16px;
+                background: rgba(255, 255, 255, 1);
+            }
+        }
+    }
+
+    &__table-head {
+        display: none;
+        margin-left: 26px;
+        margin-bottom: 20px;
+        padding-inline: 10px;
+
+        color: rgba(171, 171, 171, 1);
+        font-family: Ubuntu;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 100%;
+        text-align: left;
+
+        @include breakpointMF(tablet) {
+            display: grid;
+            grid-template-columns: 118px 1fr repeat(2, 64px) 80px;
+            gap: 10px;
+        }
+    }
+
+    &__discount,
+    &__quantity {
+        text-align: center;
+    }
+}

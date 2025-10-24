@@ -1150,12 +1150,12 @@
 
                                                         <ul class="b-select__list">
                                                             <li class="b-select__item">
-                                                                <a href="http://" id="" data-filter="" class=""b-select__link">
+                                                                <button popovertarget="popover-product-catalog" id="" data-filter="" class="b-select__link">
                                                                     Из каталога
-                                                                </a>
+                                                                </button>
                                                             </li>
                                                             <li class="b-select__item">
-                                                                <a href="http://" id="" data-filter="" class=""b-select__link">
+                                                                <a href="http://" id="" data-filter="" class="b-select__link">
                                                                     Сторонний товар
                                                                 </a>
                                                             </li>
@@ -1256,12 +1256,12 @@
 
                                                         <ul class="b-select__list">
                                                             <li class="b-select__item">
-                                                                <a href="http://" id="" data-filter="" class=""b-select__link">
+                                                                <a href="http://" id="" data-filter="" class="b-select__link">
                                                                     Из каталога
                                                                 </a>
                                                             </li>
                                                             <li class="b-select__item">
-                                                                <a href="http://" id="" data-filter="" class=""b-select__link">
+                                                                <a href="http://" id="" data-filter="" class="b-select__link">
                                                                     Сторонний товар
                                                                 </a>
                                                             </li>
@@ -1337,12 +1337,12 @@
 
                                                         <ul class="b-select__list">
                                                             <li class="b-select__item">
-                                                                <a href="http://" id="" data-filter="" class=""b-select__link">
+                                                                <a href="http://" id="" data-filter="" class="b-select__link">
                                                                     Из каталога
                                                                 </a>
                                                             </li>
                                                             <li class="b-select__item">
-                                                                <a href="http://" id="" data-filter="" class=""b-select__link">
+                                                                <a href="http://" id="" data-filter="" class="b-select__link">
                                                                     Сторонний товар
                                                                 </a>
                                                             </li>
@@ -1435,6 +1435,114 @@
                                 <use xlink:href="./images/sprite.svg#i-close-modal"></use>
                             </svg>
                         </button>
+                    </div>
+                </div>
+
+                <div id="popover-product-catalog" class="b-catalog" popover="auto">
+                    <div class="b-catalog__inner-wrapper">
+                        <div class="b-catalog__container">
+                            <div class="b-catalog__grid">
+                                <div class="b-catalog__navigation b-nav-catalog">
+                                    <div class="b-nav-catalog__body">
+                                        <h5 class="b-nav-catalog__title">
+                                            Разделы
+                                        </h5>
+                                        <div class="b-nav-catalog__list-wrapper">
+                                            <ul class="b-nav-catalog__list">
+                                                <li class="b-nav-catalog__item b-nav-item b-nav-item--dropdown">
+                                                    <div class="b-nav-item__body">
+                                                        <div class="b-nav-item__icons">
+                                                            <div class="b-nav-item__checkbox">
+                                                                <svg width="9" height="9" class="icon icon-minus">
+                                                                    <use xlink:href="./images/sprite.svg#i-opened-check"></use>
+                                                                </svg>
+                                                                <svg width="9" height="9" class="icon icon-plus">
+                                                                    <use xlink:href="./images/sprite.svg#i-initial-check"></use>
+                                                                </svg>
+                                                            </div>
+
+                                                            <div class="b-nav-item__folder">
+                                                                <svg width="24" height="19" class="icon">
+                                                                    <use xlink:href="./images/sprite.svg#i-folder"></use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="b-nav-item__text">
+                                                            <div class="b-nav-item__value">
+                                                                Chrysler
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <form class="b-catalog__search b-search-catalog">
+                                    <div class="b-search-catalog__body">
+                                        <div class="b-search-catalog__searchbar">
+                                            <input type="search" name="catalog-product-search" id="catalog-product-search-input" placeholder="Поиск">
+                                        </div>
+
+                                        <div class="b-search-catalog__table-head">
+                                            <div class="b-search-catalog__article">Артикул</div>
+                                            <div class="b-search-catalog__text">Наименование</div>
+                                            <div class="b-search-catalog__discount">C&nbsp;</div>
+                                            <div class="b-search-catalog__quantity">МЦ</div>
+                                            <div class="b-search-catalog__price">Цена</div>
+                                        </div>
+
+                                        <div class="b-search-catalog__list-wrapper">
+                                            <ul class="b-search-catalog__list">
+                                                <li class="b-search-catalog__item b-result-item">
+                                                    <div class="b-result-item__body">
+                                                        <div class="b-result-item__info">
+                                                            <div class="b-result-item__article">
+                                                                <span class="b-result-item__article-text">Арт:&nbsp;</span>
+                                                                <span class="b-result-item__article-value">10302222</span>
+                                                            </div>
+
+                                                            <div class="b-result-item__text">
+                                                                <div class="b-result-item__text-value">
+                                                                    Левое стекло фары Chrysler 300C 2004-2011
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="b-result-item__discount">
+                                                                <span class="b-result-item__discount-value">0</span>
+                                                            </div>
+
+                                                            <div class="b-result-item__quantity">
+                                                                <span class="b-result-item__quantity-value">1</span>
+                                                            </div>
+
+                                                            <div class="b-result-item__price">
+                                                                <span class="b-result-item__price-value">150000</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="b-result-item__checkbox">
+                                                            <input type="checkbox" name="catalog-product-check" id="catalog-product-0001">
+                                                        </div>
+
+                                                        <label for="catalog-product-0001" class="b-result-item__label"></label>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </form>
+
+                                <button type="button" popovertarget="popover-product-catalog" popovertargetaction="hide"  class="b-catalog__close">
+                                    <svg width="10" height="10" class="icon">
+                                        <use xlink:href="./images/sprite.svg#i-close-catalog"></use>
+                                    </svg>
+                                </button>
+
+                                <button type="button" class="b-catalog__grabber"></button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </main>
