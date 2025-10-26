@@ -215,6 +215,7 @@
         }
 
         &:has(span) {
+            padding-right: 0;
             background-color: transparent;
             border: none;
             outline: none;
@@ -236,5 +237,9 @@
                 display: block;
             }
         }
+    }
+
+    &:has(.js-dropdown-btn--active) {
+        z-index: 600;
     }
 }

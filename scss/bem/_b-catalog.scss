@@ -1,12 +1,22 @@
 .b-catalog {
     position: fixed;
-    inset: 0;
+    top: auto;
+    bottom: 0;
+    right: 0;
+    left: 0;
 
     width: 100%;
     height: 100%;
     overflow: hidden;
+    margin: 0;
+    padding: 0;
 
     background-color: transparent;
+    border: none;
+
+    @include breakpointMF(tablet) {
+        inset: 0;
+    }
 
     &::backdrop {
         background: linear-gradient(180.00deg, rgba(9, 8, 16, 0.53), rgba(8.656217575073242, 7.994284629821777, 15.9375, 0.75) 100%);
@@ -32,15 +42,28 @@
         flex-grow: 1;
         padding-top: 51px;
 
+        height: 100%;
+        max-height: 100%;
+
         @include breakpointMF(tablet) {
             padding-top: 127px;
+        }
+
+        @include breakpointMF(large-desktop) {
+            height: unset;
+            max-height: unset;
         }
     }
 
     &__grid {
         position: relative;
 
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+
         flex-grow: 1;
+        height: 100%;
         width: 100%;
         max-width: 1220px;
         padding: 35px 14px 0;
@@ -48,7 +71,7 @@
 
         background: rgba(255, 255, 255, 1);
         border: 1px solid rgba(220, 220, 220, 1);
-        border-radius: 20px;
+        border-radius: 20px 20px 0 0;
         box-sizing: border-box;
 
         @include breakpointMF(tablet) {
@@ -58,13 +81,18 @@
         @include breakpointMF(large-desktop) {
             display: grid;
             grid-template-columns: 1fr 848px;
+            grid-template-rows: 720px;
+            align-items: unset;
 
+            height: 790px;
             min-height: 790px;
+            max-height: 790px;
             flex-grow: unset;
             padding: 48px 22px 24px;
 
             background: rgba(242, 244, 246, 1);
             border: 1px solid rgba(242, 244, 246, 1);
+            border-radius: 20px;
             box-shadow: 0px 20px 22.5px -1px rgba(0, 0, 0, 0.25);
         }
     }
@@ -74,12 +102,22 @@
 
         @include breakpointMF(large-desktop) {
             display: block;
+            height: 100%;
+            max-height: 100%;
         }
     }
 
     &__search {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+
         @include breakpointMF(large-desktop) {
+            display: block;
+            height: 100%;
             padding: 20px 13px;
+            flex-grow: unset;
 
             background: rgba(255, 255, 255, 1);
             border: 1px solid rgba(220, 220, 220, 1);
@@ -107,6 +145,7 @@
 
         @include breakpointMF(tablet) {
             display: none;
+            pointer-events: none;
         }
     }
 

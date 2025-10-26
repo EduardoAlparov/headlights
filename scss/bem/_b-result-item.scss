@@ -33,6 +33,7 @@
     &__info {
         display: flex;
         flex-direction: column;
+        align-items: flex-start;
         gap: 3px;
 
         flex-grow: 1;
@@ -41,10 +42,13 @@
             display: grid;
             grid-template-columns: 118px 1fr repeat(2, 64px) 80px;
             gap: 10px;
+            align-items: unset;
         }
 
         &>* {
-            align-self: center;
+            @include breakpointMF(tablet) {
+                align-self: center;
+            }
         }
     }
 
@@ -61,6 +65,11 @@
         display: grid;
         place-items: center;
         flex-shrink: 0;
+        margin-right: 20px;
+
+        @include breakpointMF(tablet) {
+            margin-right: unset;
+        }
 
         &>input[type="checkbox"] {
             width: 14px;
@@ -135,6 +144,11 @@
         }
 
         &::after {
+            color: rgba(82, 82, 82, 1);
+            font-family: Ubuntu;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 100%;
             content: "\00A0₽";
 
             @include breakpointMF(tablet) {

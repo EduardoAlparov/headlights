@@ -1,4 +1,18 @@
 .b-search-catalog {
+    &__body {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+
+        flex-grow: 1;
+        max-height: calc(100% - 110px);
+
+        @include breakpointMF(large-desktop) {
+            height: 100%;
+            max-height: 100%;
+        }
+    }
+
     &__searchbar {
         height: 38px;
         margin-bottom: 20px;
@@ -58,6 +72,16 @@
         }
     }
 
+    &__searchbar {
+        @include breakpointMF(large-desktop) {
+            position: sticky;
+            top: 0;
+            z-index: 300;
+
+            background-color: #fff;
+        }
+    }
+
     &__table-head {
         display: none;
         margin-left: 26px;
@@ -81,5 +105,54 @@
     &__discount,
     &__quantity {
         text-align: center;
+    }
+
+    &__list-wrapper {
+        overflow: auto;
+        flex-grow: 1;
+
+        &.b-search-catalog__list-wrapper--hidden {
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        &:not(.b-search-catalog__list-wrapper--hidden) {
+            animation: slideBlockDown 0.4s ease 0s 1 forwards;
+        }
+
+        @include breakpointMF(large-desktop) {
+            // height: 100%;
+            // max-height: 100%;
+
+        }
+    }
+
+    &__list {
+        @include breakpointMF(large-desktop) {
+            // height: 100%;
+            // max-height: 100%;
+
+        }
+    }
+
+    &__item {
+        margin-bottom: 20px;
+
+        @include breakpointMF(large-desktop) {
+            margin-bottom: unset;
+        }
+    }
+}
+
+
+@keyframes slideBlockDown {
+    0% {
+        transform: translateY(-50);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
     }
 }

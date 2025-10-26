@@ -58,64 +58,169 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     })
 
-      const choicesEls = document.querySelectorAll('.js-choice');
+    const choicesEls = document.querySelectorAll('.js-choice');
 
-      choicesEls.forEach((select) => {
-          const choices = new Choices(select, {
-            items: [],
-            choices: [
-                {
-                    value: 'Сергей Филипов',
-                    label: 'Сергей Филипов',
-                    selected: true,
-                    disabled: false,
-                },
-                {
-                    value: 'Василий Петрович',
-                    label: 'Василий Петрович',
-                    selected: false,
-                    disabled: false,
-                },
-                {
-                    value: 'Генадий Алексеевич',
-                    label: 'Генадий Алексеевич',
-                    selected: false,
-                    disabled: false,
-                },
-                {
-                    value: 'Руслан Генадиевич',
-                    label: 'Руслан Генадиевич',
-                    selected: false,
-                    disabled: false,
-                },
-                {
-                    value: 'Тамара Ивановна',
-                    label: 'Тамара Ивановна',
-                    selected: false,
-                    disabled: false,
-                },
-                {
-                    value: 'Вячеслав Огурцов',
-                    label: 'Вячеслав Огурцов',
-                    selected: false,
-                    disabled: false,
-                },
-                {
-                    value: 'Иван Иванов',
-                    label: 'Иван Иванов',
-                    selected: false,
-                    disabled: false,
-                },
-                {
-                    value: 'Иван Петров',
-                    label: 'Иван Петров',
-                    selected: false,
-                    disabled: false,
-                },
-            ],
-            itemSelectText: false,
-            searchEnabled: false,
-          });
+    choicesEls.forEach((select) => {
+        const choices = new Choices(select, {
+        items: [],
+        choices: [
+            {
+                value: 'Сергей Филипов',
+                label: 'Сергей Филипов',
+                selected: true,
+                disabled: false,
+            },
+            {
+                value: 'Василий Петрович',
+                label: 'Василий Петрович',
+                selected: false,
+                disabled: false,
+            },
+            {
+                value: 'Генадий Алексеевич',
+                label: 'Генадий Алексеевич',
+                selected: false,
+                disabled: false,
+            },
+            {
+                value: 'Руслан Генадиевич',
+                label: 'Руслан Генадиевич',
+                selected: false,
+                disabled: false,
+            },
+            {
+                value: 'Тамара Ивановна',
+                label: 'Тамара Ивановна',
+                selected: false,
+                disabled: false,
+            },
+            {
+                value: 'Вячеслав Огурцов',
+                label: 'Вячеслав Огурцов',
+                selected: false,
+                disabled: false,
+            },
+            {
+                value: 'Иван Иванов',
+                label: 'Иван Иванов',
+                selected: false,
+                disabled: false,
+            },
+            {
+                value: 'Иван Петров',
+                label: 'Иван Петров',
+                selected: false,
+                disabled: false,
+            },
+        ],
+        itemSelectText: false,
+        searchEnabled: false,
+        });
+    });
+
+    const catlogNavItems = document.querySelectorAll('.js-nav-item-dropdown.b-nav-item--dropdown');
+
+    catlogNavItems.forEach( (catItem) => {
+        catItem.addEventListener('click', () => {
+            catItem.classList.toggle('b-nav-item--opened');
+        })
+    });
+
+    function DragMenu(options) {
+      const self    = this;
+      self.menu     = options.el;
+      self.hasTouch = 'ontouchstart' in window;
+      self.isMoving = false;
+      self.isOpen   = false;
+
+      const compStyles = window.getComputedStyle(self.menu);
+
+      self.position = {
+        min: parseInt(compStyles.bottom),
+        max: 0,
+        current: 0
+      };
+
+      self.position.snapBorder = 150;
+
+      self.btn = options.toggleButton;
+
+      self.btn && self.btn.addEventListener('click', function() {
+        self.setOpen(!self.isOpen);
       });
 
+      if (self.hasTouch) {
+        self.eventStart  = 'touchstart';
+        self.eventMove = 'touchmove';
+        self.eventEnd  = 'touchend';
+      } else {
+        return;
+      }
+
+      self.menu.addEventListener(self.eventStart, e => {
+        e.stopPropagation();
+
+        if(e.target.closest('.b-catalog__grabber')) {
+          var evt = e.type === 'touchstart' ? e.changedTouches[0] : e;
+          self.position.current = Math.abs((self.menu.offsetTop + self.menu.offsetHeight) - evt.clientY);
+        } else {
+          return;
+        }
+      }, {passive: true});
+
+      self.menu.addEventListener(self.eventMove, e => {
+        self.menu.classList.add('is-moving');
+        e.stopPropagation();
+
+        if(e.target.closest('.b-catalog__grabber')) {
+          var evt = e.type === 'touchmove' ? e.changedTouches[0] : e;
+          var move = (window.innerHeight - (evt.clientY)) - self.position.current;
+
+          if ((move) < self.position.max && (move) >= self.position.min && !self.menu.classList.contains('open')) {
+            self.setOpen(false);
+            self.menu.style.bottom = `${move}px`;
+        } else if ((move) < self.position.max && (move) < self.position.min && self.menu.classList.contains('open')) {
+            self.menu.style.bottom = `${move}px`;
+          }
+        }
+      }, {passive: true});
+
+      self.menu.addEventListener(self.eventEnd, e => {
+        self.menu.classList.remove('is-moving');
+
+        e.stopPropagation();
+
+        if(e.target.closest('.b-catalog__grabber')) {
+          var evt = e.type === 'touchend' ? e.changedTouches[0] : e;
+          var l = parseInt(self.menu.style.bottom);
+
+          if( Math.abs(l) > self.position.snapBorder && !self.menu.classList.contains('open')) {
+            self.setOpen(true);
+          } else if( Math.abs(l) > self.position.snapBorder && self.menu.classList.contains('open')){
+            self.menu.hidePopover();
+            self.setOpen(false);
+          }
+
+          self.menu.style.bottom = null;
+          self.menu.style.pointerEvents = 'initial';
+        }
+
+      }, {passive: true});
+
+      self.setOpen = isOpen => {
+        self.isOpen = isOpen;
+
+        self.menu.classList[isOpen ? 'add' : 'remove']('open');
+
+        setTimeout(() => {
+            if(!isOpen) {
+                self.menu.classList.add('open')
+            }
+        }, 500);
+      }
+    }
+
+    if(window.matchMedia("(max-width: 744px)").matches) {
+        new DragMenu({el: document.querySelector('.b-catalog'), toggleButton: document.querySelector('.b-catalog__grabber')});
+    }
 })

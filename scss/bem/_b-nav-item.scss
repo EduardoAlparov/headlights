@@ -8,6 +8,11 @@
         background: rgba(229, 233, 237, 1);
     }
 
+    &+.b-nav-item {
+        display: none;
+        padding-left: 40px;
+    }
+
     &__body {
         display: flex;
         align-items: flex-start;
@@ -34,6 +39,10 @@
             grid-column: 1 / 2;
             display: block;
         }
+
+        .icon-minus {
+            opacity: 0;
+        }
     }
 
     &__folder {
@@ -43,11 +52,40 @@
     }
 
     &__value {
+        max-width: 20ch;
         color: rgba(0, 0, 0, 1);
         font-family: Ubuntu;
         font-size: 16px;
         font-weight: 400;
         line-height: 100%;
         text-align: left;
+    }
+
+    &:not(.b-nav-item--dropdown) {
+        background: rgba(229, 233, 237, 1);
+
+        .b-nav-item__checkbox {
+            display: none;
+        }
+    }
+
+    &.b-nav-item--simple {
+        padding-left: 90px;
+    }
+
+    &.b-nav-item--opened {
+        .b-nav-item__checkbox {
+            .icon-minus {
+                opacity: 1;
+            }
+
+            .icon-plus {
+                opacity: 0;
+            }
+        }
+
+        &+.b-nav-item {
+            display: block;
+        }
     }
 }
