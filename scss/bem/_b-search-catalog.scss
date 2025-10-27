@@ -111,6 +111,8 @@
         overflow: auto;
         flex-grow: 1;
 
+        @include customScrollbar;
+
         &.b-search-catalog__list-wrapper--hidden {
             visibility: hidden;
             opacity: 0;
@@ -118,20 +120,6 @@
 
         &:not(.b-search-catalog__list-wrapper--hidden) {
             animation: slideBlockDown 0.4s ease 0s 1 forwards;
-        }
-
-        @include breakpointMF(large-desktop) {
-            // height: 100%;
-            // max-height: 100%;
-
-        }
-    }
-
-    &__list {
-        @include breakpointMF(large-desktop) {
-            // height: 100%;
-            // max-height: 100%;
-
         }
     }
 

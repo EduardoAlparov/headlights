@@ -265,11 +265,6 @@
         position: absolute;
         top: 0;
         right: 0;
-
-        @include breakpointMF(tablet) {
-            // position: relative;
-            // margin-left: auto;
-        }
     }
 
     &__order-product-data {

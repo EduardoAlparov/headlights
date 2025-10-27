@@ -53,9 +53,16 @@
         overflow: auto;
         padding-bottom: 93px;
 
+        @include customScrollbar;
+
         @include breakpointMF(tablet) {
             max-height: calc(100% - 145px);
             padding-bottom: 145px;
+        }
+
+        @include breakpointMF(large-desktop) {
+            margin-right: 12px;
+
         }
     }
 
