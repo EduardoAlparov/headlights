@@ -241,6 +241,8 @@
             &:disabled {
                 background: rgba(255, 255, 255, 1);
                 border-color: rgba(219, 219, 219, 1);
+                opacity: 1;
+                -webkit-appearance: none;
             }
 
             @include breakpointMF(tablet) {
@@ -248,6 +250,16 @@
                 font-size: 16px;
                 background: rgba(255, 255, 255, 1);
             }
+
+            &::-webkit-outer-spin-button,
+            &::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+        }
+
+        &>input[type=number] {
+            -moz-appearance: textfield;
         }
 
         &>textarea {
@@ -274,18 +286,21 @@
 
         &.b-order-cell__input-wrapper--no-border {
             align-items: flex-start;
+            cursor: pointer;
 
             &>label {
                 position: static;
                 padding-inline: 0;
                 background: transparent;
                 transform: unset;
+                pointer-events: none;
             }
 
             &>input {
                 padding-inline: 0;
                 padding-block: 0;
                 border-width: 0;
+                pointer-events: none;
             }
         }
     }

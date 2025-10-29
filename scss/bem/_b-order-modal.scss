@@ -7,62 +7,101 @@
     flex-direction: column;
     align-items: stretch;
 
-    display: none;
-    overflow: hidden;
+    height: 100%;
 
     background: linear-gradient(180.00deg, rgba(9, 8, 16, 0.53), rgba(8.656217575073242, 7.994284629821777, 15.9375, 0.75) 100%);
 
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+
+    @include breakpointMF(large-desktop) {
+        @include noScrollbar()
+    }
+
     &.is-open {
-        display: flex;
+        visibility: visible;
+        opacity: 1;
+        transition: opacity 0.3s, visibility 0.3s;
 
-        .b-order-modal__inner-wrapper {
-            animation: slideFromDown 0.4s ease 0s 1 forwards;
-
-            @include breakpointMF(large-desktop) {
-                animation: slideFromRight 0.4s ease 0s 1 forwards;
-            }
+        .b-order-modal__footer {
+            display: flex;
         }
     }
 
-    @include breakpointMF(large-desktop) {
-        padding-top: 93px;
-    }
+    &__outter-wrapper {
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
 
-    @include breakpointMF(ultra-desktop) {
-        padding-top: 145px;
+
+        @include breakpointMF(large-desktop) {
+            height: 100%;
+            overflow: auto;
+            padding-top: 93px;
+
+            @include noScrollbar()
+        }
+
+        @include breakpointMF(ultra-desktop) {
+            padding-top: 145px;
+        }
+
+        &.modal-open {
+            display: flex;
+        }
+
+        &.animate-open {
+            .b-order-modal__inner-wrapper {
+                transform: translate(0%, 0%);
+            }
+        }
     }
 
     &__inner-wrapper {
         position: relative;
         z-index: 100;
+
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+
         flex-grow: 1;
-        height: 100%;
+        transform: translateY(100%);
 
         color: var(--color-black, #000);
         background-color: var(--color-back-2, #F2F2F2);
+        transition: transform var(--transition-time);
+
 
         @include breakpointMF(large-desktop) {
             width: 100%;
             max-width: 1373px;
             margin-left: auto;
+            transform: translateX(100%);
+
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+
+            @include noScrollbar()
+        }
+
+        @include breakpointMF(ultra-desktop) {
+            max-width: 1807px;
         }
     }
 
     &__main {
-        max-height: calc(100% - 93px - 10px);
+        padding-bottom: 90px;
+        flex-grow: 1;
+
         overflow: auto;
-        padding-bottom: 93px;
-
-        @include customScrollbar;
-
-        @include breakpointMF(tablet) {
-            max-height: calc(100% - 145px);
-            padding-bottom: 145px;
-        }
+        max-height: 90vh;
 
         @include breakpointMF(large-desktop) {
-            margin-right: 12px;
-
+            overflow: unset;
+            max-height: unset;
+            padding-bottom: 90px;
         }
     }
 
@@ -74,15 +113,12 @@
     }
 
     &__header {
-        margin-bottom: 25px;
-        padding: 14px 25px 0;
+        padding: 30px 25px 30px;
 
-        @include breakpointMF(tablet) {
-            margin-bottom: 30 px;
-            padding: 36px 25px 0;
-        }
+        @include breakpointMF(tablet) {}
 
         @include breakpointMF(large-desktop) {
+            margin-bottom: 30px;
             padding: 36px 30px 0;
         }
     }
@@ -92,7 +128,6 @@
         align-items: center;
         justify-content: space-between;
 
-        margin-bottom: 22px;
 
         @include breakpointMF(large-desktop) {
             display: none;
@@ -100,14 +135,22 @@
     }
 
     &__header-col {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 5px;
+        flex-direction: row;
+        align-items: baseline;
+        gap: 10px;
 
-        @include breakpointMF(tablet) {
-            flex-direction: row;
-            align-items: baseline;
-            gap: 10px;
+        &.b-order-modal__header-col--tablet {
+            display: none;
+
+            @include breakpointMF(large-desktop) {
+                display: flex;
+            }
+        }
+
+        &.b-order-modal__header-col--mobile {
+            @include breakpointMF(large-desktop) {
+                display: none;
+            }
         }
     }
 
@@ -228,8 +271,6 @@
         text-align: center;
         white-space: nowrap;
 
-        // transition: all 0.3s;
-
         &.b-order-modal__select-link--cancel {
             color: var(--color-orange, #FD6D20);
 
@@ -250,18 +291,17 @@
 
     &__close-btn {
         position: absolute;
-        top: 37px;
+        top: 12px;
         left: 0;
-        // right: calc(100%);
         z-index: -1;
 
         display: grid;
         place-items: center flex-start;
         clip-path: polygon(50% 0.00%, 50% 100.00%, 0.00% 100.00%, 0.00% 0.00%);
 
-        width: 142px;
-        height: 56px;
-        padding-left: 25px;
+        width: 116px;
+        height: 40px;
+        padding-left: 16px;
 
         transform: translateX(-50%);
 
@@ -270,7 +310,10 @@
 
         .icon {
             display: block;
+        }
 
+        @include breakpointMF(ultra-desktop) {
+            top: 18px;
         }
     }
 
@@ -281,27 +324,27 @@
         left: 0;
         z-index: 300;
 
-        display: flex;
+        display: none;
         align-items: center;
         justify-content: center;
         gap: 30px;
 
         width: 100%;
-        height: 95px;
+        max-width: 1373px;
+        margin-left: auto;
+        height: 76px;
+        padding-block: 13px;
 
         background: rgba(255, 255, 255, 1);
-        border: 1px solid rgba(234, 234, 234, 1);
         box-sizing: border-box;
 
-        @include breakpointMF(tablet) {
-            align-items: flex-start;
-
-            height: 136px;
-            padding-top: 36px;
-        }
+        transform: translateY(100%);
+        opacity: 0;
+        transition: transform 0.3s ease, opacity 0.3s ease;
     }
 
     &__main {
+        --grid-row-value: 358px;
         display: grid;
         grid-template-columns: 100%;
 
@@ -319,7 +362,7 @@
                 "bo-first bo-biggest"
                 "bo-comment bo-biggest";
             grid-template-columns: 1fr 849px;
-            grid-auto-rows: 358px auto auto;
+            grid-auto-rows: var(--grid-row-value) auto auto;
             padding-inline: 30px;
         }
     }
@@ -370,70 +413,33 @@
 
 }
 
-.save-changes-link {
-    display: grid;
-    place-content: center;
-    place-items: center;
-
-    padding: 15px 16px;
-
-    color: rgba(255, 255, 255, 1);
-
-    font-family: Inter;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 100%;
-    letter-spacing: 0;
-    text-align: center;
-    text-decoration: none;
-
-    background: linear-gradient(269.43deg, rgba(255, 118, 46, 1), rgba(249, 89, 4, 1) 100%);
-
-    @include breakpointMF(tablet) {
-        padding: 21px 20px;
-
-        font-size: 16px;
-    }
-}
-
-.cancel-changes-link {
-    display: grid;
-    place-content: center;
-    place-items: center;
-
-    padding: 15px 16px;
-
-    color: var(--color-orange, #FD6D20);
-    font-family: Inter;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 100%;
-    letter-spacing: 0;
-    text-align: center;
-    text-decoration: none;
-
-    @include breakpointMF(tablet) {
-        padding: 21px 20px;
-
-        font-size: 16px;
-    }
-}
-
 .save-changes-link,
 .cancel-changes-link {
-    &__tablet-text {
-        display: none;
+    display: grid;
+    place-content: center;
+    place-items: center;
 
-        @include breakpointMF(tablet) {
-            display: inline;
-        }
-    }
+    height: 50px;
+    padding-inline: 10px;
 
-    &__mobile-text {
-        @include breakpointMF(tablet) {
-            display: none;
-        }
-    }
+    font-family: Ubuntu;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 100%;
+    text-align: center;
+    text-decoration: none;
+}
+
+.save-changes-link {
+    color: rgba(255, 255, 255, 1);
+    font-weight: 400;
+
+    border-radius: 5px;
+    background: linear-gradient(269.43deg, rgba(255, 118, 46, 1), rgba(249, 89, 4, 1) 100%);
+}
+
+.cancel-changes-link {
+    color: rgba(168, 172, 179, 1);
 }
 
 .add-item-btn {
@@ -509,5 +515,14 @@
         display: block;
         width: 20px;
         height: 20px;
+    }
+}
+
+.b-order-modal {
+    &:has(input:focus-visible) {
+        .b-order-modal__footer {
+            transform: translateY(0);
+            opacity: 1;
+        }
     }
 }

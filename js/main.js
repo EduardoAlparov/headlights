@@ -10,10 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // inits modals:
     const modal = new Modal({
-        isOpen: (modal) => {
-        },
-        isClose: (modal) => {
-        },
+        isOpen: (modal) => {},
+        isClose: (modal) => {},
     });
 
     const itemDropdonwBtns = document.querySelectorAll('.js-item-dropdown-btn');
@@ -61,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const choicesEls = document.querySelectorAll('.js-choice');
 
     choicesEls.forEach((select) => {
-        const choices = new Choices(select, {
+        const choice = new Choices(select, {
         items: [],
         choices: [
             {
@@ -116,6 +114,17 @@ document.addEventListener("DOMContentLoaded", () => {
         itemSelectText: false,
         searchEnabled: false,
         });
+
+        select.addEventListener(
+            'choice',
+            function(event) {
+                setTimeout(() => {
+                    const input = document.querySelector('[name="selcet-active"]');
+                input.focus();
+                }, 200);
+            },
+            false,
+        );
     });
 
     const catlogNavItems = document.querySelectorAll('.js-nav-item-dropdown.b-nav-item--dropdown');
@@ -223,4 +232,20 @@ document.addEventListener("DOMContentLoaded", () => {
     if(window.matchMedia("(max-width: 744px)").matches) {
         new DragMenu({el: document.querySelector('.b-catalog'), toggleButton: document.querySelector('.b-catalog__grabber')});
     }
+
+    const changedInputs = document.querySelectorAll('.js-change-info-input');
+    const root = document.documentElement;
+
+    changedInputs.forEach((box) => {
+        box.addEventListener('click', (e) => {
+            box.classList.remove('b-order-cell__input-wrapper--no-border');
+            box.querySelector('input')?.removeAttribute('disabled');
+            box.querySelector('input')?.focus();
+
+            const grid = e.target.closest('.b-order-modal__main');
+            const ht = e.target.closest('.b-order-modal__order-information').offsetHeight;
+
+            grid.style.setProperty('--grid-row-value', `${ht}px`);
+        })
+    })
 })

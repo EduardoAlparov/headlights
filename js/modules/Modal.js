@@ -68,16 +68,6 @@ export default class Modal {
     }
   }
 
-  onOpen(element, anima, sped) {
-    let target = element;
-    let animation = anima;
-    let speed = sped;
-    this.animation = animation ? animation : 'fade';
-    this.speed = speed ? parseInt(speed) : 300;
-    this.modalContainer = document.querySelector(`[data-target="${target}"]`);
-    this.open(this.modalContainer.closest(".js-orders-modal"));
-  }
-
   open(thisModal) {
     this.previousActiveElement = document.activeElement;
 
@@ -93,17 +83,22 @@ export default class Modal {
       this.modalContainer.classList.add('animate-open');
       this.isOpen = true;
       this.focusTrap();
-    }, this.speed);
+    }, 200);
   }
 
   close() {
     if (this.modalContainer) {
       this.modalContainer.classList.remove('animate-open');
+
       this.modalContainer.classList.remove(this.animation);
-      this.modals.forEach(mdl => {
-        mdl.classList.remove('is-open');
-      })
-      this.modalContainer.classList.remove('modal-open');
+
+
+      setTimeout(() => {
+        this.modals.forEach(mdl => {
+            mdl.classList.remove('is-open');
+        })
+        this.modalContainer.classList.remove('modal-open');
+      }, 200);
 
       this.enableScroll();
       this.options.isClose(this);

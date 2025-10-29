@@ -200,17 +200,17 @@
 
         &>span {
             flex-shrink: 0;
-            width: 9px;
-            height: 9px;
+            width: 5px;
+            height: 5px;
 
             border-radius: 100%;
             box-sizing: border-box;
-            border: 1px solid rgba(252, 117, 45, 1);
-            background: rgba(242, 242, 242, 1);
+            border: 1px solid rgba(0, 0, 0, 1);
+            background: rgba(242, 244, 246, 1);
             transition: all 0.2s ease;
 
             &:not(:last-child) {
-                margin-right: 10px;
+                margin-right: 7px;
             }
         }
 
@@ -231,6 +231,7 @@
 
             &>span {
                 background: rgba(253, 109, 32, 1);
+                border-color: rgba(253, 109, 32, 1);
             }
 
             &~.b-select__dropdown {

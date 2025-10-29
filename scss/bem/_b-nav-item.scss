@@ -77,7 +77,9 @@
     }
 
     &.b-nav-item--opened {
-        .b-nav-item__checkbox {
+        background: rgba(229, 233, 237, 1);
+
+        z .b-nav-item__checkbox {
             .icon-minus {
                 opacity: 1;
             }
@@ -89,6 +91,14 @@
 
         &+.b-nav-item {
             display: block;
+        }
+    }
+
+    &.b-nav-item--dropdown {
+        &:not(.b-nav-item--opened) {
+            &~.b-nav-item {
+                display: none;
+            }
         }
     }
 }

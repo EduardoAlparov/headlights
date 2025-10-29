@@ -324,11 +324,12 @@
     }
 
     &__link {
-        position: absolute;
+        position: static;
         inset: 0;
         z-index: 100;
 
         display: none;
+        display: block;
         margin-top: auto;
 
         color: #FD6D20;
@@ -341,14 +342,11 @@
         text-decoration: none;
         cursor: pointer;
 
-        @include breakpointMF(tablet) {
-            position: static;
-            display: block;
-        }
+        @include breakpointMF(tablet) {}
     }
 
     &__link-inner {
-        display: none;
+        display: flex;
         align-items: flex-end;
         gap: 18px;
 
@@ -359,8 +357,6 @@
             text-decoration: underline;
         }
 
-        @include breakpointMF(tablet) {
-            display: flex;
-        }
+        @include breakpointMF(tablet) {}
     }
 }

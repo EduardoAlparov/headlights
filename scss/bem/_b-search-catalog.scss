@@ -5,7 +5,7 @@
         align-items: stretch;
 
         flex-grow: 1;
-        max-height: calc(100% - 110px);
+        max-height: 100%;
 
         @include breakpointMF(large-desktop) {
             height: 100%;

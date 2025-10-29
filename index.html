@@ -853,588 +853,597 @@
                 </section>
 
                 <div class="b-order-modal js-orders-modal">
-                    <div class="b-order-modal__inner-wrapper js-orders-modal-content" data-target="order-modal">
-                        <div class="b-order-modal__header">
-                            <div class="b-order-modal__header-controls">
-                                <a href="#" class="b-order-modal__arrow-back js-orders-modal-close">
-                                    <svg class="icon">
-                                        <use xlink:href="./images/sprite.svg#i-back-arrow"></use>
-                                    </svg>
-                                </a>
-                                <div class="b-order-modal__title">
-                                    Заказ-наряд
-                                </div>
-
-                                <div class="b-order-modal__more">
-                                    <div class="b-order-modal__select b-select">
-                                        <button type="button" class="b-select__current js-item-dropdown-btn">
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                        </button>
-                                        <div class="b-select__dropdown b-select__dropdown--below">
-                                            <ul class="b-select__list">
-                                                <li class="b-select__item">
-                                                    <a href="http://" id="" data-filter="" class=""b-select__link">
-                                                        Выполнить возврат
-                                                    </a>
-                                                </li>
-                                                <li class="b-select__item">
-                                                    <a href="http://" id="" data-filter="" class=""b-select__link">
-                                                        Оформить через кассу
-                                                    </a>
-                                                </li>
-                                                <li class="b-select__item">
-                                                    <a href="http://" id="" data-filter="" class=""b-select__link">
-                                                        Отправить ссылку на оплату
-                                                    </a>
-                                                </li>
-                                                <li class="b-select__item">
-                                                    <a href="http://" id="" data-filter="" class=""b-select__link">
-                                                        Отменить заказ
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
+                    <div class="b-order-modal__outter-wrapper js-orders-modal-content" data-target="order-modal">
+                        <div class="b-order-modal__inner-wrapper">
+                            <div class="b-order-modal__header">
+                                <div class="b-order-modal__header-controls">
+                                    <a href="#" class="b-order-modal__arrow-back js-orders-modal-close">
+                                        <svg class="icon">
+                                            <use xlink:href="./images/sprite.svg#i-back-arrow"></use>
+                                        </svg>
+                                    </a>
+                                    <div class="b-order-modal__title">
+                                        Заказ-наряд
                                     </div>
-                                </div>
-                            </div>
-                            <div class="b-order-modal__header-row">
-                                <div class="b-order-modal__header-col">
 
-                                    <div class="b-order-modal__order-number">
-                                        <span class="b-order-modal__order-number-text">
-                                            Заказ №&nbsp;
-                                        </span>
-                                        <span class="b-order-modal__order-number-value">
-                                            436500
-                                        </span>
-                                    </div>
-                                    <div class="b-order-modal__order-date">
-                                        <div class="b-order-modal__date-value">
-                                            01.09.2025
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="b-order-modal__header-selects">
-                                <ul class="b-order-modal__header-row">
-                                    <li class="b-order-modal__selects-item">
-                                        <a href="#" id="" data-link="" class="b-order-modal__select-link">
-                                            Выполнить возврат
-                                        </a>
-                                    </li>
-                                    <li class="b-order-modal__selects-item">
-                                        <a href="#" id="" data-link="" class="b-order-modal__select-link">
-                                            Оформить через кассу
-                                        </a>
-                                    </li>
-                                    <li class="b-order-modal__selects-item">
-                                        <a href="#" id="" data-link="" class="b-order-modal__select-link">
-                                            Отправить ссылку на оплату
-                                        </a>
-                                    </li>
-                                    <li class="b-order-modal__selects-item">
-                                        <a href="#" id="" data-link="" class="b-order-modal__select-link b-order-modal__select-link--cancel">
-                                            Отменить заказ
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="b-order-modal__main">
-                            <div class="b-order-modal__grid-column b-order-modal__grid-column--first">
-                                <div class="b-order-modal__order-information">
-                                    <div class="b-order-modal__order-cell b-order-cell">
-                                        <div class="b-order-cell__body">
-                                            <div class="b-order-cell__title">
-                                                ИНФОРМАЦИЯ
-                                            </div>
-
-                                            <div class="b-order-cell__grid">
-                                                <div class="b-order-cell__col b-order-cell__price-box">
-                                                    <div class="b-order-cell__price-value">42 500</div>
-                                                    <div class="b-order-cell__price-profit">27 500</div>
-                                                </div>
-
-                                                <div class="b-order-cell__col b-order-cell__col--client">
-                                                    <div class="b-order-cell__input-wrapper b-order-cell__input-wrapper--no-border">
-                                                        <label for="order-client-name" class="b-order-cell__label">Клиент</label>
-                                                        <input type="text" name="client-name" id="order-client-name" value="Франчайзи Краснодар" disabled>
-                                                    </div>
-                                                </div>
-
-                                                <div class="b-order-cell__col b-order-cell__col--responsible">
-                                                    <div class="b-order-cell__input-wrapper b-order-cell__input-wrapper--no-border">
-                                                        <label for="order-responsible-person" class="b-order-cell__label">Ответственный</label>
-                                                        <input type="text" name="responsible-name" id="order-responsible-person" value="Виталий Спб" disabled>
-                                                    </div>
-                                                </div>
-
-                                                <div class="b-order-cell__col b-order-cell__col--phone">
-                                                    <div class="b-order-cell__input-wrapper b-order-cell__input-wrapper--no-border">
-                                                        <label for="order-client-phone" class="b-order-cell__label">Телефон</label>
-                                                        <input type="tel" name="client-phone" id="order-client-phone" value="+7 (906) 280-74-14" disabled>
-                                                    </div>
-                                                </div>
-
-                                                <div class="b-order-cell__col b-order-cell__col--city">
-                                                    <div class="b-order-cell__input-wrapper b-order-cell__input-wrapper--no-border">
-                                                        <label for="order-client-city">Город</label>
-                                                        <input type="text" name="client-city" id="order-client-city" value="Санкт-Петербург" disabled>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="b-order-modal__grid-column b-order-modal__grid-column--biggest">
-                                <div class="b-order-modal__order-products">
-                                    <div class="b-order-modal__order-cell b-order-cell">
-                                        <div class="b-order-cell__body">
-                                            <div class="b-order-cell__title">
-                                                ТОВАРЫ
-                                            </div>
-
-                                            <div class="b-order-cell__table">
-                                                <button type="button" class="b-order-cell__remove-btn b-remove-btn">
-                                                    <svg width="16" height="16" class="icon">
-                                                        <use xlink:href="./images/sprite.svg#i-basket"></use>
-                                                    </svg>
-                                                </button>
-
-                                                <div class="b-order-cell__table-head">
-
-                                                    <div class="b-order-cell__table-column b-order-cell__table-column--naming">
-                                                        <span>Наименование</span>
-                                                    </div>
-                                                    <div class="b-order-cell__table-column b-order-cell__table-column--article">
-                                                        <span>Артикул</span>
-                                                    </div>
-                                                    <div class="b-order-cell__table-column b-order-cell__table-column--purchase">
-                                                        <span>Закупка</span>
-                                                    </div>
-                                                    <div class="b-order-cell__table-column b-order-cell__table-column--discount">
-                                                        <span>Скидка</span>
-                                                    </div>
-                                                    <div class="b-order-cell__table-column b-order-cell__table-column--quantity">
-                                                        <span>Кол-во</span>
-                                                    </div>
-                                                    <div class="b-order-cell__table-column b-order-cell__table-column--price">
-                                                        <span>Цена</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="b-order-cell__list-wrapper">
-                                                <ul class="b-order-cell__products-list">
-                                                    <li class="b-order-cell__product  b-product b-product--no-article js-delete-target" id="product-0001" data-product="">
-                                                        <button type="button" class="b-product__remove-btn b-remove-btn js-product-remove-btn">
-                                                            <svg class="icon">
-                                                                <use xlink:href="./images/sprite.svg#i-basket"></use>
-                                                            </svg>
-                                                        </button>
-
-                                                        <div class="b-product__grid-wrapper">
-                                                            <div class="b-product__cell b-product__cell--naming">
-                                                                <div class="b-product__input-wrapper b-order-cell__input-wrapper">
-                                                                    <label for="order-product-name-01" class="b-order-cell__label b-order-cell__label--hide-on-tablet">Наименование</label>
-                                                                    <input type="text" name="order-product-name" id="order-product-name-01" value="Левое стекло фары на авто" disabled>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="b-product__cell b-product__cell--article">
-                                                                <div class="b-product__article-value b-product__text">
-                                                                    00000000
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="b-product__cell b-product__cell--purchase">
-                                                                <div class="b-product__input-wrapper b-order-cell__input-wrapper">
-                                                                    <label for="order-product-purchase-01" class="b-order-cell__label b-order-cell__label--hide-on-tablet">Закупка</label>
-                                                                    <input type="text" name="order-product-purchase" id="order-product-purchase-01" value="1500" disabled>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="b-product__cell b-product__cell--discount">
-                                                                <div class="b-product__input-wrapper b-order-cell__input-wrapper b-order-cell__input-wrapper--center-number">
-                                                                    <label for="order-product-discount-01" class="b-order-cell__label b-order-cell__label--hide-on-tablet">Скидка</label>
-                                                                    <input type="text" name="order-product-discount" id="order-product-discount-01" value="100" disabled>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="b-product__cell b-product__cell--quantity">
-                                                                <div class="b-product__input-wrapper b-order-cell__input-wrapper b-order-cell__input-wrapper--center-number">
-                                                                    <label for="order-product-quantity-01" class="b-order-cell__label b-order-cell__label--hide-on-tablet">Кол-во</label>
-                                                                    <input type="text" name="order-product-quantity" id="order-product-quantity-01" value="1" disabled>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="b-product__cell b-product__cell--price">
-                                                                <div class="b-product__input-wrapper b-order-cell__input-wrapper">
-                                                                    <label for="order-product-price-01" class="b-order-cell__label b-order-cell__label--hide-on-tablet">Цена</label>
-                                                                    <input type="text" name="order-product-price" id="order-product-price-01" value="1500" disabled>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                    <div class="b-order-modal__more">
+                                        <div class="b-order-modal__select b-select">
+                                            <button type="button" class="b-select__current js-item-dropdown-btn">
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </button>
+                                            <div class="b-select__dropdown b-select__dropdown--below">
+                                                <ul class="b-select__list">
+                                                    <li class="b-select__item">
+                                                        <a href="http://" id="" data-filter="" class=""b-select__link">
+                                                            Выполнить возврат
+                                                        </a>
                                                     </li>
-                                                    <li class="b-order-cell__product  b-product b-product--has-article js-delete-target" id="product-0002" data-product="">
-                                                        <button type="button" class="b-product__remove-btn b-remove-btn js-product-remove-btn">
-                                                            <svg class="icon">
-                                                                <use xlink:href="./images/sprite.svg#i-basket"></use>
-                                                            </svg>
-                                                        </button>
-
-                                                        <div class="b-product__grid-wrapper">
-                                                            <div class="b-product__cell b-product__cell--naming">
-                                                                <div class="b-product__article-value b-product__text">
-                                                                    90503221
-                                                                </div>
-                                                                <div class="b-product__desc b-product__text">
-                                                                    Левое стекло фары Audi Q3 8U 2014-2018 Рестайлинг
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="b-product__cell b-product__cell--article">
-                                                                <div class="b-product__article-value b-product__text">
-                                                                    90503221
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="b-product__cell b-product__cell--purchase">
-                                                                <div class="b-product__input-wrapper b-order-cell__input-wrapper">
-                                                                    <div class="b-product__text">
-                                                                        0000
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="b-product__cell b-product__cell--discount">
-                                                                <div class="b-product__input-wrapper b-order-cell__input-wrapper b-order-cell__input-wrapper--center-number">
-                                                                    <label for="order-product-discount-02" class="b-order-cell__label b-order-cell__label--hide-on-tablet">Скидка</label>
-                                                                    <input type="text" name="order-product-discount" id="order-product-discount-02" value="100" disabled>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="b-product__cell b-product__cell--quantity">
-                                                                <div class="b-product__input-wrapper b-order-cell__input-wrapper b-order-cell__input-wrapper--center-number">
-                                                                    <label for="order-product-quantity-02" class="b-order-cell__label b-order-cell__label--hide-on-tablet">Кол-во</label>
-                                                                    <input type="text" name="order-product-quantity" id="order-product-quantity-02" value="1" disabled>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="b-product__cell b-product__cell--price">
-                                                                <div class="b-product__input-wrapper b-order-cell__input-wrapper">
-                                                                    <label for="order-product-price-02" class="b-order-cell__label b-order-cell__label--hide-on-tablet">Цена</label>
-                                                                    <input type="text" name="order-product-price" id="order-product-price-02" value="1500" disabled>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                    <li class="b-select__item">
+                                                        <a href="http://" id="" data-filter="" class=""b-select__link">
+                                                            Оформить через кассу
+                                                        </a>
+                                                    </li>
+                                                    <li class="b-select__item">
+                                                        <a href="http://" id="" data-filter="" class=""b-select__link">
+                                                            Отправить ссылку на оплату
+                                                        </a>
+                                                    </li>
+                                                    <li class="b-select__item">
+                                                        <a href="http://" id="" data-filter="" class=""b-select__link">
+                                                            Отменить заказ
+                                                        </a>
                                                     </li>
                                                 </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="b-order-modal__header-row">
+                                    <div class="b-order-modal__header-col b-order-modal__header-col--tablet">
 
-                                                <div class="b-product__add-item b-select">
-                                                    <button type="button" class="b-product__add-item-btn add-item-btn js-item-dropdown-btn">
-                                                        Добавить +
-                                                    </button>
-                                                    <div class="b-select__dropdown b-select__dropdown--center">
-
-                                                        <button type="button" class="b-select__close">
-                                                            <span></span>
-                                                            <span></span>
-                                                        </button>
-
-                                                        <ul class="b-select__list">
-                                                            <li class="b-select__item">
-                                                                <button popovertarget="popover-product-catalog" id="" data-filter="" class="b-select__link">
-                                                                    Из каталога
-                                                                </button>
-                                                            </li>
-                                                            <li class="b-select__item">
-                                                                <a href="http://" id="" data-filter="" class="b-select__link">
-                                                                    Сторонний товар
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
+                                        <div class="b-order-modal__order-number">
+                                            <span class="b-order-modal__order-number-text">
+                                                Заказ №&nbsp;
+                                            </span>
+                                            <span class="b-order-modal__order-number-value">
+                                                436500
+                                            </span>
+                                        </div>
+                                        <div class="b-order-modal__order-date">
+                                            <div class="b-order-modal__date-value">
+                                                01.09.2025
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="b-order-modal__order-services">
-                                    <div class="b-order-modal__order-cell b-order-cell">
-                                        <div class="b-order-cell__body">
-                                            <div class="b-order-cell__title">
-                                                УСЛУГИ
-                                            </div>
-
-                                            <div class="b-order-cell__table b-order-cell__table--services">
-                                                <button type="button" class="b-order-cell__remove-btn b-remove-btn">
-                                                    <svg class="icon">
-                                                        <use xlink:href="./images/sprite.svg#i-basket"></use>
-                                                    </svg>
-                                                </button>
-
-                                                <div class="b-order-cell__table-head b-order-cell__table-head--services">
-                                                    <div class="b-order-cell__table-column b-order-cell__table-column--naming">
-                                                        <span>Наименование</span>
-                                                    </div>
-                                                    <div class="b-order-cell__table-column b-order-cell__table-column--master">
-                                                        <span>Мастер</span>
-                                                    </div>
-                                                    <div class="b-order-cell__table-column b-order-cell__table-column--costprice">
-                                                        <span>Себестоимость</span>
-                                                    </div>
-                                                    <div class="b-order-cell__table-column b-order-cell__table-column--price">
-                                                        <span>Цена</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="b-order-cell__list-wrapper">
-                                                <ul class="b-order-cell__products-list b-order-cell__services-list">
-                                                    <li class="b-order-cell__product b-service js-delete-target" id="service-001" data-service="">
-                                                        <button type="button" class="b-service__remove-btn b-product__remove-btn b-remove-btn js-product-remove-btn">
-                                                            <svg class="icon">
-                                                                <use xlink:href="./images/sprite.svg#i-basket"></use>
-                                                            </svg>
-                                                        </button>
-
-                                                        <div class="b-service__grid-wrapper">
-                                                            <div class="b-service__cell b-service__cell--naming">
-                                                                <div class="b-service__input-wrapper b-order-cell__input-wrapper">
-                                                                    <label for="order-service-name-01" class="b-order-cell__label b-order-cell__label--hide-on-tablet">Наименование</label>
-                                                                    <input type="text" name="order-service-name" id="order-service-name-01" value="Установка левого стекла" disabled>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="b-service__cell b-service__cell--master">
-                                                                <div class="b-service__select">
-                                                                    <div class="b-service__select-label">
-                                                                        Мастер
-                                                                    </div>
-                                                                    <div class="b-service__select-wrapper">
-                                                                        <select id="service-select" class="js-choice"></select>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="b-service__cell b-service__cell--costprice">
-                                                                <div class="b-service__input-wrapper b-order-cell__input-wrapper">
-                                                                    <label for="order-service-costprice-01" class="b-order-cell__label b-order-cell__label--hide-on-tablet">Себестоимость</label>
-                                                                    <input type="text" name="order-service-costprice" id="order-service-costprice-01" value="15000" disabled>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="b-service__cell b-service__cell--price">
-                                                                <div class="b-service__input-wrapper b-order-cell__input-wrapper">
-                                                                    <label for="order-service-price-01" class="b-order-cell__label b-order-cell__label--hide-on-tablet">Цена</label>
-                                                                    <input type="text" name="order-service-price" id="order-service-price-01" value="15000" disabled>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-                                                    </li>
-                                                </ul>
-
-                                                <div class="b-service__add-item b-product__add-item b-select">
-                                                    <button type="button" class="b-product__add-item-btn add-item-btn js-item-dropdown-btn">
-                                                        Добавить +
-                                                    </button>
-                                                    <div class="b-select__dropdown b-select__dropdown--center">
-
-                                                        <button type="button" class="b-select__close">
-                                                            <span></span>
-                                                            <span></span>
-                                                        </button>
-
-                                                        <ul class="b-select__list">
-                                                            <li class="b-select__item">
-                                                                <a href="http://" id="" data-filter="" class="b-select__link">
-                                                                    Из каталога
-                                                                </a>
-                                                            </li>
-                                                            <li class="b-select__item">
-                                                                <a href="http://" id="" data-filter="" class="b-select__link">
-                                                                    Сторонний товар
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="b-order-modal__order-expenses">
-                                    <div class="b-order-modal__order-cell b-order-cell">
-                                        <div class="b-order-cell__body">
-                                            <div class="b-order-cell__title">
-                                                РАСХОДЫ
-                                            </div>
-
-                                            <div class="b-order-cell__table">
-                                                <button type="button" class="b-order-cell__remove-btn b-remove-btn">
-                                                    <svg class="icon">
-                                                        <use xlink:href="./images/sprite.svg#i-basket"></use>
-                                                    </svg>
-                                                </button>
-
-                                                <div class="b-order-cell__table-head b-order-cell__table-head--two-elements">
-                                                    <div class="b-order-cell__table-column b-order-cell__table-column--naming b-order-cell__table-column--all-grow">
-                                                        <span>Наименование</span>
-                                                    </div>
-
-                                                    <div class="b-order-cell__table-column b-order-cell__table-column--price">
-                                                        <span>Цена</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="b-order-cell__list-wrapper">
-                                                <ul class="b-order-cell__products-list b-order-cell__services-list">
-                                                    <li class="b-order-cell__product b-service b-expenses js-delete-target" id="service-001" data-service="">
-                                                        <button type="button" class="b-service__remove-btn b-remove-btn js-product-remove-btn">
-                                                            <svg class="icon">
-                                                                <use xlink:href="./images/sprite.svg#i-basket"></use>
-                                                            </svg>
-                                                        </button>
-                                                        <div class="b-service__grid-wrapper b-expenses__grid-wrapper">
-                                                            <div class="b-service__cell b-service__cell--naming b-expenses__cell b-expenses__cell--naming">
-                                                                <div class="b-service__input-wrapper b-order-cell__input-wrapper">
-                                                                    <label for="order-expenses-name-01" class="b-order-cell__label b-order-cell__label--hide-on-tablet">Наименование</label>
-                                                                    <input type="text" name="order-expenses-name" id="order-expenses-name-01" value="Установка корпуса" disabled>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="b-service__cell b-service__cell--price b-expenses__cell b-expenses__cell--price">
-                                                                <div class="b-service__input-wrapper b-order-cell__input-wrapper">
-                                                                    <label for="order-expenses-price-01" class="b-order-cell__label b-order-cell__label--hide-on-tablet">Цена</label>
-                                                                    <input type="text" name="order-expenses-price" id="order-expenses-price-01" value="15000" disabled>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-
-                                                <div class="b-service__add-item b-product__add-item b-select">
-                                                    <button type="button" class="b-product__add-item-btn add-item-btn js-item-dropdown-btn">
-                                                        Добавить +
-                                                    </button>
-                                                    <div class="b-select__dropdown b-select__dropdown--bottom">
-
-                                                        <button type="button" class="b-select__close">
-                                                            <span></span>
-                                                            <span></span>
-                                                        </button>
-
-                                                        <ul class="b-select__list">
-                                                            <li class="b-select__item">
-                                                                <a href="http://" id="" data-filter="" class="b-select__link">
-                                                                    Из каталога
-                                                                </a>
-                                                            </li>
-                                                            <li class="b-select__item">
-                                                                <a href="http://" id="" data-filter="" class="b-select__link">
-                                                                    Сторонний товар
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="b-order-modal__grid-column b-order-modal__grid-column--comment">
-                                <div class="b-order-modal__order-comments  js-order-comment">
-                                    <ul class="b-order-modal__order-comment-list">
-                                        <li class="b-order-modal__order-comment">
-                                            <div class="b-order-modal__order-cell b-order-cell">
-                                                <div class="b-order-cell__body">
-                                                    <div class="b-order-cell__title">
-                                                        КОММЕНТАРИЙ
-                                                        <span>(</span><span class="b-order-cell__comment-date">29.08.2025</span><span>)</span>
-                                                    </div>
-
-                                                    <div class="b-order-cell__comment">
-                                                        <div class="b-order-cell__comment-row">
-                                                            <div class="b-order-cell__table-column b-order-cell__subtitle">
-                                                                <span>Комментарий</span>
-                                                            </div>
-                                                            <p class="b-order-cell__comment-text b-order-cell__comment-value">
-                                                                Созвониться с кллиентом и уточнить детали
-                                                            </p>
-                                                        </div>
-                                                        <div class="b-order-cell__comment-row">
-                                                            <div class="b-order-cell__table-column b-order-cell__subtitle">
-                                                                <span>Оставил </span>
-                                                            </div>
-                                                            <p class="b-order-cell__comment-text b-order-cell__comment-author">
-                                                                Виталий Спб
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                <div class="b-order-modal__header-selects">
+                                    <ul class="b-order-modal__header-row">
+                                        <li class="b-order-modal__selects-item">
+                                            <a href="#" id="" data-link="" class="b-order-modal__select-link">
+                                                Выполнить возврат
+                                            </a>
+                                        </li>
+                                        <li class="b-order-modal__selects-item">
+                                            <a href="#" id="" data-link="" class="b-order-modal__select-link">
+                                                Оформить через кассу
+                                            </a>
+                                        </li>
+                                        <li class="b-order-modal__selects-item">
+                                            <a href="#" id="" data-link="" class="b-order-modal__select-link">
+                                                Отправить ссылку на оплату
+                                            </a>
+                                        </li>
+                                        <li class="b-order-modal__selects-item">
+                                            <a href="#" id="" data-link="" class="b-order-modal__select-link b-order-modal__select-link--cancel">
+                                                Отменить заказ
+                                            </a>
                                         </li>
                                     </ul>
-
-                                    <form action="" class="b-order-modal__order-comment-form">
-                                         <div class="b-order-modal__order-cell b-order-cell">
-                                                <div class="b-order-cell__body">
-                                                    <div class="b-order-cell__title">
-                                                        ДОБАВИТЬ КОММЕНТАРИЙ
-                                                    </div>
-
-                                                    <div class="b-order-cell__input-wrapper">
-                                                        <label for="order-comment-01" class="b-order-cell__label b-order-cell__label--hide-on-tablet">Комментарий</label>
-                                                        <textarea  name="order-comment" id="order-comment-01">Созвониться с кллиентом и уточнить деталиСозвониться с кллиентом и уточнить</textarea>
-                                                    </div>
-
-                                                    <a href="#" class="b-order-cell__add-comment-btn add-item-btn">
-                                                        Добавить +
-                                                    </a>
-                                                </div>
-                                            </div>
-                                    </form>
                                 </div>
                             </div>
+
+                            <div class="b-order-modal__main">
+                                <div class="b-order-modal__grid-column b-order-modal__grid-column--first">
+                                    <div class="b-order-modal__header-col b-order-modal__header-col--mobile">
+
+                                        <div class="b-order-modal__order-number">
+                                            <span class="b-order-modal__order-number-text">
+                                                Заказ №&nbsp;
+                                            </span>
+                                            <span class="b-order-modal__order-number-value">
+                                                436500
+                                            </span>
+                                        </div>
+                                        <div class="b-order-modal__order-date">
+                                            <div class="b-order-modal__date-value">
+                                                01.09.2025
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="b-order-modal__order-information">
+                                        <div class="b-order-modal__order-cell b-order-cell">
+                                            <div class="b-order-cell__body">
+                                                <div class="b-order-cell__title">
+                                                    ИНФОРМАЦИЯ
+                                                </div>
+
+                                                <div class="b-order-cell__grid">
+                                                    <div class="b-order-cell__col b-order-cell__price-box">
+                                                        <div class="b-order-cell__price-value">42 500</div>
+                                                        <div class="b-order-cell__price-profit">27 500</div>
+                                                    </div>
+
+                                                    <div class="b-order-cell__col b-order-cell__col--client">
+                                                        <div class="b-order-cell__input-wrapper b-order-cell__input-wrapper--no-border js-change-info-input">
+                                                            <label for="order-client-name" class="b-order-cell__label">Клиент</label>
+                                                            <input type="text" name="client-name" id="order-client-name" value="Франчайзи Краснодар" disabled>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="b-order-cell__col b-order-cell__col--responsible">
+                                                        <div class="b-order-cell__input-wrapper b-order-cell__input-wrapper--no-border js-change-info-input">
+                                                            <label for="order-responsible-person" class="b-order-cell__label">Ответственный</label>
+                                                            <input type="text" name="responsible-name" id="order-responsible-person" value="Виталий Спб" disabled>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="b-order-cell__col b-order-cell__col--phone">
+                                                        <div class="b-order-cell__input-wrapper b-order-cell__input-wrapper--no-border js-change-info-input">
+                                                            <label for="order-client-phone" class="b-order-cell__label">Телефон</label>
+                                                            <input type="tel" name="client-phone" id="order-client-phone" value="+7 (906) 280-74-14" disabled>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="b-order-cell__col b-order-cell__col--city">
+                                                        <div class="b-order-cell__input-wrapper b-order-cell__input-wrapper--no-border js-change-info-input">
+                                                            <label for="order-client-city">Город</label>
+                                                            <input type="text" name="client-city" id="order-client-city" value="Санкт-Петербург" disabled>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="b-order-modal__grid-column b-order-modal__grid-column--biggest">
+                                    <div class="b-order-modal__order-products">
+                                        <div class="b-order-modal__order-cell b-order-cell">
+                                            <div class="b-order-cell__body">
+                                                <div class="b-order-cell__title">
+                                                    ТОВАРЫ
+                                                </div>
+
+                                                <div class="b-order-cell__table">
+                                                    <button type="button" class="b-order-cell__remove-btn b-remove-btn">
+                                                        <svg width="16" height="16" class="icon">
+                                                            <use xlink:href="./images/sprite.svg#i-basket"></use>
+                                                        </svg>
+                                                    </button>
+
+                                                    <div class="b-order-cell__table-head">
+
+                                                        <div class="b-order-cell__table-column b-order-cell__table-column--naming">
+                                                            <span>Наименование</span>
+                                                        </div>
+                                                        <div class="b-order-cell__table-column b-order-cell__table-column--article">
+                                                            <span>Артикул</span>
+                                                        </div>
+                                                        <div class="b-order-cell__table-column b-order-cell__table-column--purchase">
+                                                            <span>Закупка</span>
+                                                        </div>
+                                                        <div class="b-order-cell__table-column b-order-cell__table-column--discount">
+                                                            <span>Скидка</span>
+                                                        </div>
+                                                        <div class="b-order-cell__table-column b-order-cell__table-column--quantity">
+                                                            <span>Кол-во</span>
+                                                        </div>
+                                                        <div class="b-order-cell__table-column b-order-cell__table-column--price">
+                                                            <span>Цена</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="b-order-cell__list-wrapper">
+                                                    <ul class="b-order-cell__products-list">
+                                                        <li class="b-order-cell__product  b-product b-product--no-article js-delete-target" id="product-0001" data-product="">
+                                                            <button type="button" class="b-product__remove-btn b-remove-btn js-product-remove-btn">
+                                                                <svg class="icon">
+                                                                    <use xlink:href="./images/sprite.svg#i-basket"></use>
+                                                                </svg>
+                                                            </button>
+
+                                                            <div class="b-product__grid-wrapper">
+                                                                <div class="b-product__cell b-product__cell--naming">
+                                                                    <div class="b-product__input-wrapper b-order-cell__input-wrapper">
+                                                                        <label for="order-product-name-01" class="b-order-cell__label b-order-cell__label--hide-on-tablet">Наименование</label>
+                                                                        <input type="text" name="order-product-name" id="order-product-name-01" value="Левое стекло фары на авто">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="b-product__cell b-product__cell--article">
+                                                                    <div class="b-product__article-value b-product__text">
+                                                                        00000000
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="b-product__cell b-product__cell--purchase">
+                                                                    <div class="b-product__input-wrapper b-order-cell__input-wrapper">
+                                                                        <label for="order-product-purchase-01" class="b-order-cell__label b-order-cell__label--hide-on-tablet">Закупка</label>
+                                                                        <input type="text" name="order-product-purchase" id="order-product-purchase-01" value="1500" >
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="b-product__cell b-product__cell--discount">
+                                                                    <div class="b-product__input-wrapper b-order-cell__input-wrapper b-order-cell__input-wrapper--center-number">
+                                                                        <label for="order-product-discount-01" class="b-order-cell__label b-order-cell__label--hide-on-tablet">Скидка</label>
+                                                                        <input type="text" name="order-product-discount" id="order-product-discount-01" value="100" >
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="b-product__cell b-product__cell--quantity">
+                                                                    <div class="b-product__input-wrapper b-order-cell__input-wrapper b-order-cell__input-wrapper--center-number">
+                                                                        <label for="order-product-quantity-01" class="b-order-cell__label b-order-cell__label--hide-on-tablet">Кол-во</label>
+                                                                        <input type="text" name="order-product-quantity" id="order-product-quantity-01" value="1" >
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="b-product__cell b-product__cell--price">
+                                                                    <div class="b-product__input-wrapper b-order-cell__input-wrapper">
+                                                                        <label for="order-product-price-01" class="b-order-cell__label b-order-cell__label--hide-on-tablet">Цена</label>
+                                                                        <input type="text" name="order-product-price" id="order-product-price-01" value="1500" >
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="b-order-cell__product  b-product b-product--has-article js-delete-target" id="product-0002" data-product="">
+                                                            <button type="button" class="b-product__remove-btn b-remove-btn js-product-remove-btn">
+                                                                <svg class="icon">
+                                                                    <use xlink:href="./images/sprite.svg#i-basket"></use>
+                                                                </svg>
+                                                            </button>
+
+                                                            <div class="b-product__grid-wrapper">
+                                                                <div class="b-product__cell b-product__cell--naming">
+                                                                    <div class="b-product__article-value b-product__text">
+                                                                        90503221
+                                                                    </div>
+                                                                    <div class="b-product__desc b-product__text">
+                                                                        Левое стекло фары Audi Q3 8U 2014-2018 Рестайлинг
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="b-product__cell b-product__cell--article">
+                                                                    <div class="b-product__article-value b-product__text">
+                                                                        90503221
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="b-product__cell b-product__cell--purchase">
+                                                                    <div class="b-product__input-wrapper b-order-cell__input-wrapper">
+                                                                        <div class="b-product__text">
+                                                                            0000
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="b-product__cell b-product__cell--discount">
+                                                                    <div class="b-product__input-wrapper b-order-cell__input-wrapper b-order-cell__input-wrapper--center-number">
+                                                                        <label for="order-product-discount-02" class="b-order-cell__label b-order-cell__label--hide-on-tablet">Скидка</label>
+                                                                        <input type="number" name="order-product-discount" id="order-product-discount-02" value="100" >
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="b-product__cell b-product__cell--quantity">
+                                                                    <div class="b-product__input-wrapper b-order-cell__input-wrapper b-order-cell__input-wrapper--center-number">
+                                                                        <label for="order-product-quantity-02" class="b-order-cell__label b-order-cell__label--hide-on-tablet">Кол-во</label>
+                                                                        <input type="number" name="order-product-quantity" id="order-product-quantity-02" value="1" >
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="b-product__cell b-product__cell--price">
+                                                                    <div class="b-product__input-wrapper b-order-cell__input-wrapper">
+                                                                        <label for="order-product-price-02" class="b-order-cell__label b-order-cell__label--hide-on-tablet">Цена</label>
+                                                                        <input type="number" name="order-product-price" id="order-product-price-02" value="1500" >
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+
+                                                    <div class="b-product__add-item b-select">
+                                                        <button type="button" class="b-product__add-item-btn add-item-btn js-item-dropdown-btn">
+                                                            Добавить +
+                                                        </button>
+                                                        <div class="b-select__dropdown b-select__dropdown--center">
+
+                                                            <button type="button" class="b-select__close">
+                                                                <span></span>
+                                                                <span></span>
+                                                            </button>
+
+                                                            <ul class="b-select__list">
+                                                                <li class="b-select__item">
+                                                                    <button popovertarget="popover-product-catalog" id="" data-filter="" class="b-select__link">
+                                                                        Из каталога
+                                                                    </button>
+                                                                </li>
+                                                                <li class="b-select__item">
+                                                                    <a href="http://" id="" data-filter="" class="b-select__link">
+                                                                        Сторонний товар
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="b-order-modal__order-services">
+                                        <div class="b-order-modal__order-cell b-order-cell">
+                                            <div class="b-order-cell__body">
+                                                <div class="b-order-cell__title">
+                                                    УСЛУГИ
+                                                </div>
+
+                                                <div class="b-order-cell__table b-order-cell__table--services">
+                                                    <button type="button" class="b-order-cell__remove-btn b-remove-btn">
+                                                        <svg class="icon">
+                                                            <use xlink:href="./images/sprite.svg#i-basket"></use>
+                                                        </svg>
+                                                    </button>
+
+                                                    <div class="b-order-cell__table-head b-order-cell__table-head--services">
+                                                        <div class="b-order-cell__table-column b-order-cell__table-column--naming">
+                                                            <span>Наименование</span>
+                                                        </div>
+                                                        <div class="b-order-cell__table-column b-order-cell__table-column--master">
+                                                            <span>Мастер</span>
+                                                        </div>
+                                                        <div class="b-order-cell__table-column b-order-cell__table-column--costprice">
+                                                            <span>Себестоимость</span>
+                                                        </div>
+                                                        <div class="b-order-cell__table-column b-order-cell__table-column--price">
+                                                            <span>Цена</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="b-order-cell__list-wrapper">
+                                                    <ul class="b-order-cell__products-list b-order-cell__services-list">
+                                                        <li class="b-order-cell__product b-service js-delete-target" id="service-001" data-service="">
+                                                            <button type="button" class="b-service__remove-btn b-product__remove-btn b-remove-btn js-product-remove-btn">
+                                                                <svg class="icon">
+                                                                    <use xlink:href="./images/sprite.svg#i-basket"></use>
+                                                                </svg>
+                                                            </button>
+
+                                                            <div class="b-service__grid-wrapper">
+                                                                <div class="b-service__cell b-service__cell--naming">
+                                                                    <div class="b-service__input-wrapper b-order-cell__input-wrapper">
+                                                                        <label for="order-service-name-01" class="b-order-cell__label b-order-cell__label--hide-on-tablet">Наименование</label>
+                                                                        <input type="text" name="order-service-name" id="order-service-name-01" value="Установка левого стекла" >
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="b-service__cell b-service__cell--master">
+                                                                    <input type="text" name="selcet-active">
+                                                                    <div class="b-service__select">
+                                                                        <div class="b-service__select-label">
+                                                                            Мастер
+                                                                        </div>
+                                                                        <div class="b-service__select-wrapper">
+                                                                            <select id="service-select" class="js-choice"></select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="b-service__cell b-service__cell--costprice">
+                                                                    <div class="b-service__input-wrapper b-order-cell__input-wrapper">
+                                                                        <label for="order-service-costprice-01" class="b-order-cell__label b-order-cell__label--hide-on-tablet">Себестоимость</label>
+                                                                        <input type="text" name="order-service-costprice" id="order-service-costprice-01" value="15000" >
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="b-service__cell b-service__cell--price">
+                                                                    <div class="b-service__input-wrapper b-order-cell__input-wrapper">
+                                                                        <label for="order-service-price-01" class="b-order-cell__label b-order-cell__label--hide-on-tablet">Цена</label>
+                                                                        <input type="text" name="order-service-price" id="order-service-price-01" value="15000" >
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+
+                                                    <div class="b-service__add-item b-product__add-item b-select">
+                                                        <button type="button" class="b-product__add-item-btn add-item-btn js-item-dropdown-btn">
+                                                            Добавить +
+                                                        </button>
+                                                        <div class="b-select__dropdown b-select__dropdown--center">
+
+                                                            <button type="button" class="b-select__close">
+                                                                <span></span>
+                                                                <span></span>
+                                                            </button>
+
+                                                            <ul class="b-select__list">
+                                                                <li class="b-select__item">
+                                                                    <a href="http://" id="" data-filter="" class="b-select__link">
+                                                                        Из каталога
+                                                                    </a>
+                                                                </li>
+                                                                <li class="b-select__item">
+                                                                    <a href="http://" id="" data-filter="" class="b-select__link">
+                                                                        Сторонний товар
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="b-order-modal__order-expenses">
+                                        <div class="b-order-modal__order-cell b-order-cell">
+                                            <div class="b-order-cell__body">
+                                                <div class="b-order-cell__title">
+                                                    РАСХОДЫ
+                                                </div>
+
+                                                <div class="b-order-cell__table">
+                                                    <button type="button" class="b-order-cell__remove-btn b-remove-btn">
+                                                        <svg class="icon">
+                                                            <use xlink:href="./images/sprite.svg#i-basket"></use>
+                                                        </svg>
+                                                    </button>
+
+                                                    <div class="b-order-cell__table-head b-order-cell__table-head--two-elements">
+                                                        <div class="b-order-cell__table-column b-order-cell__table-column--naming b-order-cell__table-column--all-grow">
+                                                            <span>Наименование</span>
+                                                        </div>
+
+                                                        <div class="b-order-cell__table-column b-order-cell__table-column--price">
+                                                            <span>Цена</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="b-order-cell__list-wrapper">
+                                                    <ul class="b-order-cell__products-list b-order-cell__services-list">
+                                                        <li class="b-order-cell__product b-service b-expenses js-delete-target" id="service-001" data-service="">
+                                                            <button type="button" class="b-service__remove-btn b-remove-btn js-product-remove-btn">
+                                                                <svg class="icon">
+                                                                    <use xlink:href="./images/sprite.svg#i-basket"></use>
+                                                                </svg>
+                                                            </button>
+                                                            <div class="b-service__grid-wrapper b-expenses__grid-wrapper">
+                                                                <div class="b-service__cell b-service__cell--naming b-expenses__cell b-expenses__cell--naming">
+                                                                    <div class="b-service__input-wrapper b-order-cell__input-wrapper">
+                                                                        <label for="order-expenses-name-01" class="b-order-cell__label b-order-cell__label--hide-on-tablet">Наименование</label>
+                                                                        <input type="text" name="order-expenses-name" id="order-expenses-name-01" value="Установка корпуса" >
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="b-service__cell b-service__cell--price b-expenses__cell b-expenses__cell--price">
+                                                                    <div class="b-service__input-wrapper b-order-cell__input-wrapper">
+                                                                        <label for="order-expenses-price-01" class="b-order-cell__label b-order-cell__label--hide-on-tablet">Цена</label>
+                                                                        <input type="text" name="order-expenses-price" id="order-expenses-price-01" value="15000" >
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+
+                                                    <div class="b-service__add-item b-product__add-item b-select">
+                                                        <button type="button" class="b-product__add-item-btn add-item-btn js-item-dropdown-btn">
+                                                            Добавить +
+                                                        </button>
+                                                        <div class="b-select__dropdown b-select__dropdown--bottom">
+
+                                                            <button type="button" class="b-select__close">
+                                                                <span></span>
+                                                                <span></span>
+                                                            </button>
+
+                                                            <ul class="b-select__list">
+                                                                <li class="b-select__item">
+                                                                    <a href="http://" id="" data-filter="" class="b-select__link">
+                                                                        Из каталога
+                                                                    </a>
+                                                                </li>
+                                                                <li class="b-select__item">
+                                                                    <a href="http://" id="" data-filter="" class="b-select__link">
+                                                                        Сторонний товар
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="b-order-modal__grid-column b-order-modal__grid-column--comment">
+                                    <div class="b-order-modal__order-comments  js-order-comment">
+                                        <ul class="b-order-modal__order-comment-list">
+                                            <li class="b-order-modal__order-comment">
+                                                <div class="b-order-modal__order-cell b-order-cell">
+                                                    <div class="b-order-cell__body">
+                                                        <div class="b-order-cell__title">
+                                                            КОММЕНТАРИЙ
+                                                            <span>(</span><span class="b-order-cell__comment-date">29.08.2025</span><span>)</span>
+                                                        </div>
+
+                                                        <div class="b-order-cell__comment">
+                                                            <div class="b-order-cell__comment-row">
+                                                                <div class="b-order-cell__table-column b-order-cell__subtitle">
+                                                                    <span>Комментарий</span>
+                                                                </div>
+                                                                <p class="b-order-cell__comment-text b-order-cell__comment-value">
+                                                                    Созвониться с кллиентом и уточнить детали
+                                                                </p>
+                                                            </div>
+                                                            <div class="b-order-cell__comment-row">
+                                                                <div class="b-order-cell__table-column b-order-cell__subtitle">
+                                                                    <span>Оставил </span>
+                                                                </div>
+                                                                <p class="b-order-cell__comment-text b-order-cell__comment-author">
+                                                                    Виталий Спб
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+
+                                        <form action="" class="b-order-modal__order-comment-form">
+                                             <div class="b-order-modal__order-cell b-order-cell">
+                                                    <div class="b-order-cell__body">
+                                                        <div class="b-order-cell__title">
+                                                            ДОБАВИТЬ КОММЕНТАРИЙ
+                                                        </div>
+
+                                                        <div class="b-order-cell__input-wrapper">
+                                                            <label for="order-comment-01" class="b-order-cell__label b-order-cell__label--hide-on-tablet">Комментарий</label>
+                                                            <textarea  name="order-comment" id="order-comment-01">Созвониться с кллиентом и уточнить деталиСозвониться с кллиентом и уточнить</textarea>
+                                                        </div>
+
+                                                        <a href="#" class="b-order-cell__add-comment-btn add-item-btn">
+                                                            Добавить +
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="button" class="b-order-modal__close-btn js-orders-modal-close">
+                                <svg width="12" height="12" class="icon">
+                                    <use xlink:href="./images/sprite.svg#i-close-modal"></use>
+                                </svg>
+                            </button>
                         </div>
 
-                        <div class="b-order-modal__footer">
-                            <a href="#" id="order-save-changes-link" class="b-order-modal__save-changes save-changes-link">
-                                <span class="save-changes-link__mobile-text">
-                                    Сохранить
-                                </span>
-                                <span class="save-changes-link__tablet-text">
-                                    Сохранить изменения
-                                </span>
-                            </a>
-                            <a href="#" id="order-cancel-changes-link" class="b-order-modal__cancel-changes cancel-changes-link js-orders-modal-close">
-                                <span class="cancel-changes-link__mobile-text">
-                                    Отменить
-                                </span>
-                                <span class="cancel-changes-link__tablet-text">
-                                    Отменить изменения
-                                </span>
-                            </a>
-                        </div>
-
-                        <button type="button" class="b-order-modal__close-btn js-orders-modal-close">
-                            <svg width="29" height="29" class="icon">
-                                <use xlink:href="./images/sprite.svg#i-close-modal"></use>
-                            </svg>
-                        </button>
+                    </div>
+                    <div class="b-order-modal__footer">
+                        <a href="#" id="order-save-changes-link" class="b-order-modal__save-changes save-changes-link">
+                            Сохранить
+                        </a>
+                        <a href="#" id="order-cancel-changes-link" class="b-order-modal__cancel-changes cancel-changes-link js-orders-modal-close">
+                            Отменить
+                        </a>
                     </div>
                 </div>
 
