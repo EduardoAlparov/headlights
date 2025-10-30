@@ -18,13 +18,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     itemDropdonwBtns.forEach( (btn) => {
         btn.addEventListener('click', (e) => {
-            btn.classList.add('js-dropdown-btn--active');
+            btn.classList.toggle('js-dropdown-btn--active');
 
             window.addEventListener('click', (event) => {
                 if((!btn.parentElement.contains(event.target))) {
                     if(btn.classList.contains('js-dropdown-btn--active')) {
                         btn.classList.remove('js-dropdown-btn--active');
                     }
+                }
+
+                if(window.matchMedia("(max-width: 1200px)").matches && event.target.closest('.b-select__link')) {
+                    btn.classList.remove('js-dropdown-btn--active');
                 }
             });
 

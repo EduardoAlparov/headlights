@@ -2327,9 +2327,6 @@ button {
     display: none;
   }
 }
-.b-product__cell.b-product__cell--naming .b-product__text {
-  padding-left: 11px;
-}
 @media only screen and (min-width: 744px) {
   .b-product__cell.b-product__cell--price .b-product__input-wrapper input {
     text-align: center;
@@ -2663,7 +2660,7 @@ button {
   max-height: 215px;
   overflow: hidden;
   padding-block: 10px;
-  padding-right: 8px;
+  padding-inline: 6px 10px;
   -webkit-box-shadow: 0px 0px 15px 8px rgba(0, 0, 0, 0.05);
           box-shadow: 0px 0px 15px 8px rgba(0, 0, 0, 0.05);
   border-radius: 10px !important;
@@ -2680,7 +2677,7 @@ button {
       -ms-flex-align: stretch;
           align-items: stretch;
   height: 100%;
-  padding-inline: 10px 16px;
+  padding-right: 6px;
   overflow: auto;
 }
 .b-service__select-wrapper .choices .choices__list.choices__list--dropdown .choices__list::-webkit-scrollbar {
