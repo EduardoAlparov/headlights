@@ -62,68 +62,164 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const choicesEls = document.querySelectorAll('.js-choice');
 
+    const choicesMasters = [
+        {
+            value: 'Сергей Филипов',
+            label: 'Сергей Филипов',
+            selected: true,
+            disabled: false,
+        },
+        {
+            value: 'Василий Петрович',
+            label: 'Василий Петрович',
+            selected: false,
+            disabled: false,
+        },
+        {
+            value: 'Генадий Алексеевич',
+            label: 'Генадий Алексеевич',
+            selected: false,
+            disabled: false,
+        },
+        {
+            value: 'Руслан Генадиевич',
+            label: 'Руслан Генадиевич',
+            selected: false,
+            disabled: false,
+        },
+        {
+            value: 'Тамара Ивановна',
+            label: 'Тамара Ивановна',
+            selected: false,
+            disabled: false,
+        },
+        {
+            value: 'Вячеслав Огурцов',
+            label: 'Вячеслав Огурцов',
+            selected: false,
+            disabled: false,
+        },
+        {
+            value: 'Иван Иванов',
+            label: 'Иван Иванов',
+            selected: false,
+            disabled: false,
+        },
+        {
+            value: 'Иван Петров',
+            label: 'Иван Петров',
+            selected: false,
+            disabled: false,
+        }
+    ];
+
+    const choicesMasters2 = [
+        {
+            value: 'Сергей Филипов',
+            label: 'Сергей Филипов',
+            selected: true,
+            disabled: false,
+        },
+        {
+            value: 'Василий Петрович',
+            label: 'Василий Петрович',
+            selected: false,
+            disabled: false,
+        },
+        {
+            value: 'Генадий Алексеевич',
+            label: 'Генадий Алексеевич',
+            selected: false,
+            disabled: false,
+        },
+        {
+            value: 'Руслан Генадиевич',
+            label: 'Руслан Генадиевич',
+            selected: false,
+            disabled: false,
+        },
+        {
+            value: 'Тамара Ивановна',
+            label: 'Тамара Ивановна',
+            selected: false,
+            disabled: false,
+        },
+        {
+            value: 'Вячеслав Огурцов',
+            label: 'Вячеслав Огурцов',
+            selected: false,
+            disabled: false,
+        },
+        {
+            value: 'Иван Иванов',
+            label: 'Иван Иванов',
+            selected: false,
+            disabled: false,
+        },
+        {
+            value: 'Иван Петров',
+            label: 'Иван Петров',
+            selected: false,
+            disabled: false,
+        }
+    ];
+
+    const expensesType = [
+        {
+            value: 'ФОТ',
+            label: 'ФОТ',
+            selected: true,
+            disabled: false,
+        },
+        {
+            value: 'Расход 1',
+            label: 'Расход 1',
+            selected: false,
+            disabled: false,
+        },
+        {
+            value: 'Расход 2',
+            label: 'Расход 2',
+            selected: false,
+            disabled: false,
+        },
+        {
+            value: 'Расход 3',
+            label: 'Расход 3',
+            selected: false,
+            disabled: false,
+        },
+        {
+            value: 'Расход 4',
+            label: 'Расход 4',
+            selected: false,
+            disabled: false,
+        },
+        {
+            value: 'Расход 5',
+            label: 'Расход 5',
+            selected: false,
+            disabled: false,
+        }
+    ];
+
+    const dataSets = { choicesMasters, choicesMasters2, expensesType };
+
     choicesEls.forEach((select) => {
+        const dataList = select.dataset.choices;
+
         const choice = new Choices(select, {
-        items: [],
-        choices: [
-            {
-                value: 'Сергей Филипов',
-                label: 'Сергей Филипов',
-                selected: true,
-                disabled: false,
-            },
-            {
-                value: 'Василий Петрович',
-                label: 'Василий Петрович',
-                selected: false,
-                disabled: false,
-            },
-            {
-                value: 'Генадий Алексеевич',
-                label: 'Генадий Алексеевич',
-                selected: false,
-                disabled: false,
-            },
-            {
-                value: 'Руслан Генадиевич',
-                label: 'Руслан Генадиевич',
-                selected: false,
-                disabled: false,
-            },
-            {
-                value: 'Тамара Ивановна',
-                label: 'Тамара Ивановна',
-                selected: false,
-                disabled: false,
-            },
-            {
-                value: 'Вячеслав Огурцов',
-                label: 'Вячеслав Огурцов',
-                selected: false,
-                disabled: false,
-            },
-            {
-                value: 'Иван Иванов',
-                label: 'Иван Иванов',
-                selected: false,
-                disabled: false,
-            },
-            {
-                value: 'Иван Петров',
-                label: 'Иван Петров',
-                selected: false,
-                disabled: false,
-            },
-        ],
-        itemSelectText: false,
-        searchEnabled: false,
+            items: [],
+            choices: dataList ?  dataSets[dataList] : [],
+            itemSelectText: false,
+            searchEnabled: false,
         });
 
         select.addEventListener(
             'choice',
             function(event) {
                 setTimeout(() => {
-                    const input = document.querySelector('[name="selcet-active"]');
+                    const input = select.closest('.js-choice-wrapper').querySelector('[name="select-active"]');
                 input.focus();
                 }, 200);
             },
@@ -234,7 +330,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if(window.matchMedia("(max-width: 744px)").matches) {
-        new DragMenu({el: document.querySelector('.b-catalog'), toggleButton: document.querySelector('.b-catalog__grabber')});
+        const popups = document.querySelectorAll('.b-catalog');
+
+        popups.forEach((element) => {
+            new DragMenu({el: element, toggleButton: element.querySelector('.b-catalog__grabber')});
+        });
     }
 
     const changedInputs = document.querySelectorAll('.js-change-info-input');

@@ -1,5 +1,7 @@
 # Шаблон для верстки HTML/CSS/JS для vs-code
 
+## Инструкция:
+<details>
 ## Возможности и принцип работы:
 
 * Разработка отслеживается (в расширении для vs-code) - Live Server -
@@ -88,3 +90,10 @@
 ## Про js:
 
 * JavaScript разбит на модули './js/modules', которые подключаются в './js/main.js'
+</details>
+
+# Ссылки на верстку
+# - общие:
+## Страница - [Карточка сделки.](https://eduardoalparov.github.io/headlights/)
+## Страница - [Список мастеров.](https://eduardoalparov.github.io/headlights/masters.html)
+## Страница - [Список заказы.](https://eduardoalparov.github.io/headlights/master-list.html)

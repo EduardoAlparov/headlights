@@ -53,6 +53,13 @@
         font-style: normal;
         font-weight: 700;
         line-height: normal;
+
+        &.b-work-orders__headline--bigger {
+
+            @include breakpointMF(laptop) {
+                font-size: 54px;
+            }
+        }
     }
 
     &__search-row {
@@ -195,6 +202,12 @@
             row-gap: 32px;
             column-gap: 59px;
         }
+
+        &.b-work-orders__list--lower {
+            @include breakpointMF(laptop) {
+                grid-auto-rows: minmax(545px, auto);
+            }
+        }
     }
 
     &__item {
@@ -263,6 +276,26 @@
             font-style: normal;
             font-weight: 400;
             line-height: normal;
+        }
+    }
+
+    &__masters {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 32px;
+
+        padding-block: 24px;
+
+        @include breakpointMF(laptop) {
+            display: grid;
+            grid-auto-flow: dense;
+            grid-template-columns: repeat(auto-fill, 545px);
+            grid-auto-rows: minmax(264px, auto);
+            row-gap: 45px;
+            column-gap: 56px;
+
+            padding-block: 48px;
         }
     }
 }

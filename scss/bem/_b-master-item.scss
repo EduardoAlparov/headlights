@@ -1,0 +1,128 @@
+.b-master-item {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    padding: 22px 46px 30px 25px;
+
+    border: 1px solid var(--color-border-2, #CFCFCF);
+    background-color: var(--color-white, #fff);
+    box-shadow: 0 0 25px 5px rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+
+    color: var(--color-black, #000);
+    font-family: Ubuntu;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+
+    &__body {
+        position: relative;
+
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 24px;
+
+        flex-grow: 1;
+    }
+
+    &__header {
+        .b-orders-item__button {
+            width: 46px;
+            height: 46px;
+
+            &>span {
+                width: 24px;
+                height: 3px;
+            }
+        }
+
+        .b-orders-item__select {
+            min-width: 260px;
+
+            @include breakpointMF(tablet) {
+                min-width: 348px;
+            }
+        }
+    }
+
+    &__name-value {
+        margin-top: 10px;
+        color: rgba(0, 0, 0, 1);
+        font-family: Inter;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 29px;
+        text-align: left;
+    }
+
+    &__final {
+        &.b-orders-item__final {
+            gap: 10px;
+            margin-top: unset;
+            padding-top: 32px;
+        }
+    }
+
+    &__balance {
+        &.b-orders-item__profit {
+            color: rgba(0, 0, 0, 1);
+            font-family: Inter;
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 29px;
+            text-align: left;
+        }
+    }
+
+    &__balance-value {
+        &::after {
+            content: " руб.";
+        }
+    }
+
+    &__link {
+        display: block;
+        color: rgba(253, 109, 32, 1);
+        font-family: Inter;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 22px;
+        text-decoration: none;
+    }
+
+    &.b-master-item__new {
+        padding: 0;
+        background: rgba(255, 255, 255, 1);
+        border: 1px solid rgba(253, 109, 32, 1);
+        box-sizing: border-box;
+        box-shadow: unset;
+        cursor: pointer;
+
+        transition-property: box-shadow;
+        transition-duration: 0.2s;
+        transition-timing-function: ease;
+
+        .b-master-item__body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            color: rgba(253, 109, 32, 1);
+            font-family: Inter;
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 29px;
+            text-align: cnter;
+            text-decoration: none;
+        }
+
+        @include hover {
+            box-shadow: 0px 0px 8px 2px rgba(#FD6D20, 0.3) inset;
+        }
+    }
+}

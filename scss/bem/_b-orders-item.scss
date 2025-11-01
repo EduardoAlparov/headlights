@@ -195,7 +195,7 @@
         display: none;
         white-space: nowrap;
 
-        @include breakpointMF(tablet) {
+        @include breakpointMF(laptop) {
             display: block;
             margin-left: auto;
         }
@@ -228,12 +228,18 @@
 
     &__order-products {
         gap: 0;
+
+        &.b-orders-item__order-products--expense {
+            .b-orders-item__order-product-item {
+                margin-bottom: 20px;
+            }
+        }
     }
 
     &__order-product-item {
         margin-bottom: 30px;
 
-        &:nth-child(n+3) {
+        &:nth-child(n+4) {
             display: none;
         }
 

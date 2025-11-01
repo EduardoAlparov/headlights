@@ -131,7 +131,7 @@
             }
         }
 
-        [name="selcet-active"] {
+        [name="select-active"] {
             @include visuallyHidden();
         }
     }
@@ -362,6 +362,11 @@
                         transform: translateY(-50%) rotate(180deg);
                     }
                 }
+            }
+
+            .choices__list--dropdown,
+            .choices__list[aria-expanded] {
+                z-index: 500;
             }
         }
     }
